@@ -1,0 +1,97 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --color-primary: #0A0F1C;
+  --color-secondary: #00FF88;
+  --color-accent: #00B4D8;
+  --font-sans: 'Inter', sans-serif;
+  --font-heading: 'Space Grotesk', sans-serif;
+}
+
+body {
+  font-family: 'Inter', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: var(--color-primary);
+  color: #EAEAEA;
+  line-height: 1.6;
+  overflow-x: hidden;
+  overscroll-behavior-y: none;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 72px;
+}
+
+/* Scrollbar Clean Up */
+::-webkit-scrollbar { width: 5px; }
+::-webkit-scrollbar-track { background: #050d18; }
+::-webkit-scrollbar-thumb { background: #1a3a2a; border-radius: 4px; }
+::-webkit-scrollbar-thumb:hover { background: #22c55e; }
+
+/* Section Spacing Consistency */
+section {
+  padding-top: clamp(60px, 8vw, 100px);
+  padding-bottom: clamp(60px, 8vw, 100px);
+  overflow: hidden;
+}
+
+/* Scroll-triggered Fade In */
+.reveal { opacity: 0; transform: translateY(20px); transition: opacity 0.6s ease, transform 0.6s ease; }
+.reveal.visible { opacity: 1; transform: none; }
+
+/* Navbar Scroll Glass */
+nav.scrolled {
+  background: rgba(5, 13, 24, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border-bottom: 1px solid rgba(255,255,255,0.07);
+  transition: background 0.3s ease;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Space Grotesk', sans-serif;
+  color: #FFFFFF;
+  letter-spacing: -0.02em;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.font-spaceGrotesk {
+  font-family: 'Space Grotesk', sans-serif;
+}
+
+@keyframes float {
+  0% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+  100% { transform: translateY(0px); }
+}
+
+@keyframes shine {
+  0% { transform: translateX(-100%) skewX(12deg); }
+  100% { transform: translateX(200%) skewX(12deg); }
+}
+
+@keyframes scroll-x {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-text-shimmer {
+  background: linear-gradient(90deg, #FFFFFF 0%, rgba(255,255,255,0.5) 50%, #FFFFFF 100%);
+  background-size: 200% auto;
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
+  animation: shimmer 3s linear infinite;
+}
+
+@keyframes shimmer {
+  to { background-position: 200% center; }
+}
+
+.text-glow {
+  text-shadow: 0 0 15px currentColor;
+}

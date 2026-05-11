@@ -1,0 +1,10 @@
+{
+  "name": "codesip",
+  "version": "1.0.0",
+  "scripts": {
+    "dev": "concurrently \"cd frontend && npm run dev\" \"cd backend && node index.js\""
+  },
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  }
+}
