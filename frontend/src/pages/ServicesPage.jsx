@@ -118,9 +118,7 @@ const ServicesPage = () => {
                 <p className="text-[#A0A0A0] leading-relaxed text-[15px] flex-grow">
                   {service.desc}
                 </p>
-                <button className="mt-4 flex items-center gap-2 text-sm font-semibold text-accent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Learn More <ArrowRight size={16} />
-                </button>
+
               </motion.div>
             ))}
           </motion.div>
