@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import { useParams } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Send, CheckCircle2, Briefcase, FileText } from 'lucide-react';
@@ -35,12 +35,18 @@ const InternshipDetailsPage = () => {
   const [isSuccess, setIsSuccess] = useState(false);
   const [errorMsg, setErrorMsg] = useState('');
 
+  const fileInputRef = useRef(null);
+
   const handleChange = (e) => {
     if (e.target.name === 'resume') {
       setFormData({ ...formData, resume: e.target.files[0] });
     } else {
       setFormData({ ...formData, [e.target.name]: e.target.value });
     }
+  };
+
+  const handleUploadClick = () => {
+    fileInputRef.current.click();
   };
 
   const handleSubmit = async (e) => {
@@ -169,19 +175,25 @@ const InternshipDetailsPage = () => {
                     <input 
                       type="file" 
                       name="resume"
+                      ref={fileInputRef}
                       accept=".pdf,.doc,.docx"
                       required
                       onChange={handleChange}
                       className="hidden"
-                      id="resume-upload"
                     />
-                    <label 
-                      htmlFor="resume-upload"
-                      className="w-full h-12 bg-black/20 border border-white/5 rounded-xl px-4 text-[14px] text-gray-400 flex items-center gap-3 cursor-pointer hover:border-accent/50 transition-all"
+                    <button
+                      type="button"
+                      onClick={handleUploadClick}
+                      className="w-full h-12 bg-black/20 border border-white/5 rounded-xl px-4 text-[14px] text-gray-400 flex items-center gap-3 hover:border-accent/50 transition-all text-left"
                     >
                       <FileText className="w-4 h-4 text-gray-500" />
-                      {formData.resume ? formData.resume.name : 'Upload Resume File'}
-                    </label>
+                      <span className="flex-grow truncate">
+                        {formData.resume ? formData.resume.name : 'Choose Resume File...'}
+                      </span>
+                      <span className="text-[10px] bg-white/10 px-2 py-1 rounded text-gray-500 font-bold">
+                        BROWSE
+                      </span>
+                    </button>
                   </div>
                 </div>
               </div>
