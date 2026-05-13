@@ -2,6 +2,16 @@ import React, { useRef, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { motion, useInView, animate, AnimatePresence } from 'framer-motion';
 import logo from '../assets/logo.jpg';
+import founderImg from '../assets/founder.jpg';
+import dardaLogo from '../assets/darda.jpg';
+import drpanjabLogo from '../assets/drpanjab.jpg';
+import hvpmLogo from '../assets/hvpm.jpg';
+import oldmeegheLogo from '../assets/oldmeeghe.png';
+import prpoteLogo from '../assets/prpote.jpg';
+import sipnaLogo from '../assets/sipna.jpg';
+import event1 from '../assets/event1.jpg';
+import event4 from '../assets/event4.jpg';
+import event3 from '../assets/event3.jpg';
 import { Lightbulb, ShieldCheck, Target, Award, Network, Scale, Rocket } from 'lucide-react';
 
 const LinkedinIcon = () => (
@@ -72,7 +82,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-secondary font-mono mb-4 text-sm md:text-base tracking-wider"
         >
-         गांव से वैश्विक तक
+         गांव से ग्लोबल तक
         </motion.p>
 
         <motion.h1
@@ -514,13 +524,7 @@ const CoreTeam = () => {
     {
       name: "Pruthviraj Landge",
       role: "Founder & CEO",
-      image: "https://images.unsplash.com/photo-1556157382-97eda2d62296?auto=format&fit=crop&q=80&w=600&h=600",
-      socials: { linkedin: "#", twitter: "#" }
-    },
-    {
-      name: "Suryani Landge",
-      role: "Co-Founder & CMO",
-      image: "https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?auto=format&fit=crop&q=80&w=600&h=600",
+      image: founderImg,
       socials: { linkedin: "#", twitter: "#" }
     }
   ];
@@ -558,12 +562,12 @@ const CoreTeam = () => {
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.2 }}
-          className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-12"
+          className="flex justify-center"
         >
           {team.map((member, idx) => (
             <motion.div variants={itemVariants} key={idx} className="h-full">
               <div className="h-full animate-[float_6s_ease-in-out_infinite]" style={{ animationDelay: `${idx * 1.5}s` }}>
-                <Card className="group h-full relative overflow-hidden transition-all duration-500 hover:scale-[1.05] hover:-translate-y-3 hover:shadow-[0_0_40px_rgba(0,180,216,0.2)] hover:border-accent/40 bg-white/5 border-white/10 rounded-[24px] p-6 md:p-8 flex flex-col items-center text-center reveal">
+                <div className="group h-full relative overflow-hidden transition-all duration-500 hover:scale-[1.05] hover:-translate-y-3 p-6 md:p-8 flex flex-col items-center text-center">
 
                   <div className="absolute inset-0 bg-gradient-to-t from-accent/10 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
 
@@ -571,7 +575,7 @@ const CoreTeam = () => {
                     <img
                       src={member.image}
                       alt={member.name}
-                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110 group-hover:brightness-110 filter brightness-90 grayscale-[20%]"
+                      className="w-full h-full object-cover transition-all duration-700 group-hover:scale-110"
                       loading="lazy"
                     />
 
@@ -587,7 +591,7 @@ const CoreTeam = () => {
 
                   <h3 className="text-2xl font-bold text-white mb-2 group-hover:text-accent transition-colors duration-300 drop-shadow-md z-10">{member.name}</h3>
                   <p className="text-secondary font-medium tracking-wide text-sm z-10">{member.role}</p>
-                </Card>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -601,15 +605,15 @@ const OurEvents = () => {
   const events = [
     {
       title: "Team bonding & collaboration",
-      image: "https://images.unsplash.com/photo-1522071820081-009f0129c71c?auto=format&fit=crop&q=80&w=1200",
+      image: event1,
     },
     {
       title: "Innovation and learning culture",
-      image: "https://images.unsplash.com/photo-1540317580384-e5d43616b9aa?auto=format&fit=crop&q=80&w=1200",
+      image: event4,
     },
     {
       title: "Celebrating milestones together",
-      image: "https://images.unsplash.com/photo-1511795409834-ef04bbd61622?auto=format&fit=crop&q=80&w=1200",
+      image: event3,
     }
   ];
 
@@ -654,7 +658,7 @@ const OurEvents = () => {
                 src={events[0].image}
                 alt={events[0].title}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105 filter brightness-[0.7] group-hover:brightness-100"
+                className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none"></div>
               <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2">
@@ -667,7 +671,7 @@ const OurEvents = () => {
                 src={events[1].image}
                 alt={events[1].title}
                 loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105 filter brightness-[0.7] group-hover:brightness-100"
+                className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none"></div>
               <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2">
@@ -681,7 +685,7 @@ const OurEvents = () => {
               src={events[2].image}
               alt={events[2].title}
               loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105 filter brightness-[0.7] group-hover:brightness-100"
+              className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none"></div>
             <div className="absolute bottom-8 left-8 right-8 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2">
@@ -782,12 +786,12 @@ const TrustedBy = () => {
   // NOTE: You can replace these placeholder image URLs with the actual paths to your college logos from the assets folder.
   // For example: import college1 from '../assets/college1.png'; and use { name: 'College 1', img: college1 }
   const logos = [
-    { name: "College 1", img: "https://via.placeholder.com/200x100/1a2333/ffffff?text=College+Logo" },
-    { name: "College 2", img: "https://via.placeholder.com/200x100/1a2333/ffffff?text=College+Logo" },
-    { name: "College 3", img: "https://via.placeholder.com/200x100/1a2333/ffffff?text=College+Logo" },
-    { name: "College 4", img: "https://via.placeholder.com/200x100/1a2333/ffffff?text=College+Logo" },
-    { name: "College 5", img: "https://via.placeholder.com/200x100/1a2333/ffffff?text=College+Logo" },
-    { name: "College 6", img: "https://via.placeholder.com/200x100/1a2333/ffffff?text=College+Logo" },
+    { name: "Darda College", img: dardaLogo },
+    { name: "Dr. Panjabrao Deshmukh", img: drpanjabLogo },
+    { name: "HVPM", img: hvpmLogo },
+    { name: "Meghe Group", img: oldmeegheLogo },
+    { name: "PR Pote College", img: prpoteLogo },
+    { name: "Sipna College", img: sipnaLogo },
   ];
 
   return (
@@ -802,11 +806,12 @@ const TrustedBy = () => {
         {[1, 2].map((group) => (
           <div key={group} className="flex gap-16 md:gap-24 px-8 md:px-12 items-center">
             {logos.map((logo, idx) => (
-              <div key={idx} className="w-32 md:w-40 flex-shrink-0 opacity-50 grayscale hover:opacity-100 hover:grayscale-0 transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div key={idx} className="w-40 md:w-56 flex-shrink-0 transition-all duration-300 hover:scale-110 cursor-pointer">
                 <img 
                   src={logo.img} 
                   alt={logo.name} 
-                  className="w-full h-auto object-contain rounded-lg drop-shadow-md"
+                  className="w-full h-[120px] object-contain"
+                  style={{ filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))' }}
                   loading="lazy"
                 />
               </div>
@@ -831,7 +836,7 @@ const Home = () => {
 
   // Inject Jotform Chatbot Script for the Main Page
   useEffect(() => {
-    const scriptSrc = 'https://cdn.jotfor.ms/agent/embedjs/019e118dc41371be930cb8515da6294cd30d/embed.js?autoOpenChatIn=0';
+    const scriptSrc = 'https://cdn.jotfor.ms/agent/embedjs/019e118dc41371be930cb8515da6294cd30d/embed.js?autoOpenChatIn=1';
     
     // Avoid duplicate script injection
     if (!document.querySelector(`script[src="${scriptSrc}"]`)) {
