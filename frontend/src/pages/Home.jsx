@@ -28,6 +28,9 @@ const LinkedinIcon = () => (
 const TwitterIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg>
 );
+const InstagramIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+);
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Input from '../components/ui/Input';
@@ -536,8 +539,8 @@ const CoreTeam = () => {
       role: "Founder & CEO",
       image: founderImg,
       socials: { 
-        linkedin: "https://www.linkedin.com/company/codesip-technology-llp/?viewAsMember=true", 
-        twitter: "#" 
+        linkedin: "https://www.linkedin.com/in/pruthwi-landge-b11a3a202/", 
+        instagram: "https://www.instagram.com/pruthvirajlandge.official.07?igsh=dGJ6djU4bjZoazF6" 
       }
     }
   ];
@@ -593,11 +596,11 @@ const CoreTeam = () => {
                     />
 
                     <div className="absolute inset-0 bg-primary/60 backdrop-blur-sm opacity-0 group-hover:opacity-100 transition-all duration-500 flex items-center justify-center gap-4 rounded-[2rem]">
-                      <a href={member.socials.linkedin} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-accent hover:text-primary transition-all border border-white/20 hover:border-transparent hover:scale-110">
+                      <a href={member.socials.linkedin} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-accent hover:text-primary transition-all border border-white/20 hover:border-transparent hover:scale-110">
                         <LinkedinIcon />
                       </a>
-                      <a href={member.socials.twitter} className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-accent hover:text-primary transition-all border border-white/20 hover:border-transparent hover:scale-110">
-                        <TwitterIcon />
+                      <a href={member.socials.instagram} target="_blank" rel="noopener noreferrer" className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center text-white hover:bg-[#E4405F] hover:text-white transition-all border border-white/20 hover:border-transparent hover:scale-110">
+                        <InstagramIcon />
                       </a>
                     </div>
                   </div>
