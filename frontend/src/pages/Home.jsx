@@ -238,9 +238,6 @@ const Services = () => {
               <Card className="reveal transition-all duration-300 group-hover:border-secondary/50 group-hover:shadow-[0_0_20px_rgba(0,255,136,0.2)]">
                 <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors">{service.title}</h3>
                 <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{service.desc}</p>
-                <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
-                  Learn More <ArrowRight size={16} />
-                </div>
               </Card>
             </Link>
           ))}
