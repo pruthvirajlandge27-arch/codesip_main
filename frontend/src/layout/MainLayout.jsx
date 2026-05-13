@@ -1,5 +1,6 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { Outlet, Link } from 'react-router-dom';
+import { Menu, X } from 'lucide-react';
 import logo from '../assets/logo.jpg';
 
 
@@ -11,6 +12,39 @@ const TwitterIcon = () => (
 );
 
 const MainLayout = () => {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+  const [openMobileDropdown, setOpenMobileDropdown] = useState('');
+
+  const toggleMobileMenu = () => {
+    setIsMobileMenuOpen(!isMobileMenuOpen);
+    setOpenMobileDropdown('');
+  };
+
+  const navLinks = [
+    { name: 'Home', path: '/' },
+    { name: 'Services', path: '/services', dropdown: [
+      { name: 'Final Year Project', path: '/services/final-year-project' },
+      { name: 'Manforce', path: '/services/manforce' }
+    ]},
+    { name: 'Internships', path: '/internships', dropdown: [
+      { type: 'header', name: 'Engineering' },
+      { name: 'Frontend Development', path: '/internships/frontend' },
+      { name: 'Backend Development', path: '/internships/backend' },
+      { name: 'Full Stack Development', path: '/internships/full-stack' },
+      { name: 'AI & Machine Learning', path: '/internships/ai-ml' },
+      { name: 'Data Science & Analytics', path: '/internships/data-science' },
+      { type: 'header', name: 'Management' },
+      { name: 'MBA Internship', path: '/internships/mba' },
+      { name: 'Finance', path: '/internships/finance' },
+      { name: 'Marketing', path: '/internships/marketing' }
+    ]},
+    { name: 'Careers', path: '/careers', dropdown: [
+      { name: 'Openings', path: '/careers' }
+    ]},
+    { name: 'MOUs & Collabs', path: '/mous-and-collabs' },
+    { name: 'Contact', path: '/contact' }
+  ];
+
   return (
     <div className="min-h-screen bg-primary">
       <nav className="fixed w-full z-50 top-0 bg-primary/80 backdrop-blur-md border-b border-white/10">
@@ -26,30 +60,7 @@ const MainLayout = () => {
             </div>
             <div className="hidden md:block">
               <div className="ml-10 flex items-baseline space-x-8">
-                {[
-                  { name: 'Home', path: '/' },
-                  { name: 'Services', path: '/services', dropdown: [
-                    { name: 'Final Year Project', path: '/services/final-year-project' },
-                    { name: 'Manforce', path: '/services/manforce' }
-                  ]},
-                  { name: 'Internships', path: '/internships', dropdown: [
-                    { type: 'header', name: 'Engineering' },
-                    { name: 'Frontend Development', path: '/internships/frontend' },
-                    { name: 'Backend Development', path: '/internships/backend' },
-                    { name: 'Full Stack Development', path: '/internships/full-stack' },
-                    { name: 'AI & Machine Learning', path: '/internships/ai-ml' },
-                    { name: 'Data Science & Analytics', path: '/internships/data-science' },
-                    { type: 'header', name: 'Management' },
-                    { name: 'MBA Internship', path: '/internships/mba' },
-                    { name: 'Finance', path: '/internships/finance' },
-                    { name: 'Marketing', path: '/internships/marketing' }
-                  ]},
-                  { name: 'Careers', path: '/careers', dropdown: [
-                    { name: 'Openings', path: '/careers' }
-                  ]},
-                  { name: 'MOUs & Collabs', path: '/mous-and-collabs' },
-                  { name: 'Contact', path: '/contact' }
-                ].map((item) => (
+                {navLinks.map((item) => (
                   item.dropdown ? (
                     <div key={item.name} className="relative group">
                       <Link to={item.path} className="relative px-3 py-2 rounded-md text-[15px] font-medium text-gray-300 hover:text-white transition-colors duration-300">
@@ -87,6 +98,67 @@ const MainLayout = () => {
                 ))}
               </div>
             </div>
+
+            {/* Mobile menu button */}
+            <div className="flex md:hidden items-center">
+              <button
+                onClick={toggleMobileMenu}
+                className="text-gray-300 hover:text-white focus:outline-none p-2 rounded-md hover:bg-white/5 transition-colors"
+              >
+                {isMobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+              </button>
+            </div>
+          </div>
+        </div>
+
+        {/* Mobile menu */}
+        <div className={`md:hidden transition-all duration-300 overflow-hidden bg-[#09101f]/95 backdrop-blur-xl border-b border-white/10 ${isMobileMenuOpen ? 'max-h-[80vh] overflow-y-auto py-4' : 'max-h-0'}`}>
+          <div className="px-4 space-y-1">
+            {navLinks.map((item) => (
+              <div key={item.name} className="block">
+                <div className="flex items-center justify-between">
+                  <Link
+                    to={item.path}
+                    className="block py-3 text-base font-medium text-gray-300 hover:text-white hover:bg-white/5 rounded-md px-3 transition-colors flex-grow"
+                    onClick={() => { if(!item.dropdown) setIsMobileMenuOpen(false); }}
+                  >
+                    {item.name}
+                  </Link>
+                  {item.dropdown && (
+                    <button
+                      onClick={() => setOpenMobileDropdown(openMobileDropdown === item.name ? '' : item.name)}
+                      className="p-3 text-gray-400 hover:text-white focus:outline-none"
+                    >
+                      <svg className={`w-5 h-5 transition-transform duration-200 ${openMobileDropdown === item.name ? 'rotate-180' : ''}`} fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                
+                {/* Mobile Dropdown */}
+                {item.dropdown && openMobileDropdown === item.name && (
+                  <div className="pl-6 pb-2 space-y-1 border-l-2 border-white/10 ml-3">
+                    {item.dropdown.map(subItem => (
+                      subItem.type === 'header' ? (
+                        <div key={subItem.name} className="py-2 text-xs font-bold text-accent uppercase tracking-wider mt-2 opacity-80">
+                          {subItem.name}
+                        </div>
+                      ) : (
+                        <Link
+                          key={subItem.name}
+                          to={subItem.path}
+                          className="block py-2 text-sm text-gray-400 hover:text-white hover:bg-white/5 rounded-md px-3 transition-colors"
+                          onClick={() => setIsMobileMenuOpen(false)}
+                        >
+                          {subItem.name}
+                        </Link>
+                      )
+                    ))}
+                  </div>
+                )}
+              </div>
+            ))}
           </div>
         </div>
       </nav>
