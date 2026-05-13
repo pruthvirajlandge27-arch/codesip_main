@@ -9,12 +9,15 @@ import ContactPage from './pages/ContactPage';
 import FinalYearProjectPage from './pages/FinalYearProjectPage';
 import ManpowerSupplyPage from './pages/ManforcePage';
 import MousCollabsPage from './pages/MousCollabsPage';
+import PrivacyPolicy from './pages/PrivacyPolicy';
+import Terms from './pages/Terms';
 import InternshipDetailsPage from './pages/InternshipDetailsPage';
 import AdminLogin from './pages/admin/AdminLogin';
 import AdminLayout from './layout/AdminLayout';
 import AdminDashboard from './pages/admin/AdminDashboard';
 import NotFoundPage from './pages/NotFoundPage';
 import ScrollToTopButton from './components/ui/ScrollToTopButton';
+import CookieBanner from './components/CookieBanner';
 
 const DynamicTitle = () => {
   const location = useLocation();
@@ -76,6 +79,7 @@ function App() {
       <ScrollEffects />
       <DynamicTitle />
       <ScrollToTopButton />
+      <CookieBanner />
       <Routes>
         <Route path="/" element={<MainLayout />}>
           <Route index element={<Home />} />
@@ -87,6 +91,8 @@ function App() {
           <Route path="careers" element={<CareersPage />} />
           <Route path="mous-and-collabs" element={<MousCollabsPage />} />
           <Route path="contact" element={<ContactPage />} />
+          <Route path="privacy-policy" element={<PrivacyPolicy />} />
+          <Route path="terms" element={<Terms />} />
         </Route>
         
         {/* Admin Routes */}

@@ -10,6 +10,9 @@ const LinkedinIcon = () => (
 const TwitterIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z"/></svg>
 );
+const InstagramIcon = () => (
+  <svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+);
 
 const MainLayout = () => {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
@@ -249,6 +252,9 @@ const MainLayout = () => {
                 <a href="#" className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[#A0A0A0] hover:text-accent hover:border-accent/40 hover:bg-accent/10 hover:shadow-[0_0_15px_rgba(0,180,216,0.2)] transition-all duration-300">
                   <TwitterIcon />
                 </a>
+                <a href="#" className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[#A0A0A0] hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:bg-[#E4405F]/10 hover:shadow-[0_0_15px_rgba(228,64,95,0.2)] transition-all duration-300">
+                  <InstagramIcon />
+                </a>
               </div>
             </div>
 
@@ -259,10 +265,13 @@ const MainLayout = () => {
 
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[14px] text-[#A0A0A0]">
-            <p>&copy; 2026 Codesip Technology LLP. All rights reserved.</p>
+            <div className="flex flex-col items-center md:items-start gap-2">
+              <p>&copy; 2025 Codesip Technology LLP. All rights reserved.</p>
+              <a href="mailto:hr@codesip.in" className="hover:text-accent transition-colors">hr@codesip.in</a>
+            </div>
             <div className="flex gap-8 font-medium">
-              <a href="#" className="hover:text-white transition-colors duration-200">Privacy Policy</a>
-              <a href="#" className="hover:text-white transition-colors duration-200">Terms of Service</a>
+              <Link to="/privacy-policy" className="hover:text-white transition-colors duration-200">Privacy Policy</Link>
+              <Link to="/terms" className="hover:text-white transition-colors duration-200">Terms of Service</Link>
             </div>
           </div>
 

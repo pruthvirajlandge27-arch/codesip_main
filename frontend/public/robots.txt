@@ -1,0 +1,3 @@
+User-agent: *
+Allow: /
+Sitemap: https://codesip-main-mv49.vercel.app/sitemap.xml
