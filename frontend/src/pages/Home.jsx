@@ -906,7 +906,7 @@ const Home = () => {
             <div className="relative z-10 flex flex-col items-center">
 
               {/* Circular Network Node Rings */}
-              <div className="relative flex items-center justify-center w-40 h-40 md:w-48 md:h-48 mb-10">
+              <div className="relative flex items-center justify-center w-56 h-56 md:w-72 md:h-72 mb-10">
                 <motion.div
                   animate={{ rotate: 360 }}
                   transition={{ duration: 10, repeat: Infinity, ease: "linear" }}
@@ -930,7 +930,7 @@ const Home = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1.2, ease: "easeOut" }}
-                  className="h-16 md:h-20 w-auto object-contain rounded-xl shadow-[0_0_30px_rgba(0,180,216,0.3)] relative z-10"
+                  className="h-24 md:h-32 w-auto object-contain rounded-2xl shadow-[0_0_50px_rgba(0,180,216,0.4)] relative z-10"
                 />
               </div>
 
