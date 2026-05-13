@@ -312,7 +312,7 @@ const Highlights = () => {
     {
       text: (
         <>
-          <span className="text-white font-bold">CodeSip</span> is a leading <span className="text-secondary font-bold drop-shadow-[0_0_12px_rgba(0,255,136,0.3)] tracking-wide">GenAI solutions</span> provider, empowering modern businesses with cutting-edge intelligence.
+          <span className="text-white font-bold">Codesip Technology LLP</span> is a leading <span className="text-secondary font-bold drop-shadow-[0_0_12px_rgba(0,255,136,0.3)] tracking-wide">GenAI solutions</span> provider, empowering modern businesses with cutting-edge intelligence.
         </>
       ),
       glow: "from-secondary/10 to-transparent"

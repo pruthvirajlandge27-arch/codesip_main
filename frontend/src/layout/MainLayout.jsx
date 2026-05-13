@@ -54,7 +54,7 @@ const MainLayout = () => {
               <Link to="/" className="flex items-center gap-3 hover:opacity-90 transition-opacity duration-300">
                 <img src={logo} alt="CodeSip" className="h-8 md:h-10 w-auto object-contain rounded-md shadow-[0_0_10px_rgba(255,255,255,0.1)]" />
                 <span className="text-xl md:text-2xl font-bold bg-clip-text text-transparent bg-gradient-to-r from-secondary to-accent tracking-tight font-heading hidden sm:block">
-                  CodeSip
+                  Codesip Technology LLP
                 </span>
               </Link>
             </div>
@@ -259,7 +259,7 @@ const MainLayout = () => {
 
           {/* Bottom Section */}
           <div className="flex flex-col md:flex-row justify-between items-center gap-6 text-[14px] text-[#A0A0A0]">
-            <p>&copy; 2026 CodeSip. All rights reserved.</p>
+            <p>&copy; 2026 Codesip Technology LLP. All rights reserved.</p>
             <div className="flex gap-8 font-medium">
               <a href="#" className="hover:text-white transition-colors duration-200">Privacy Policy</a>
               <a href="#" className="hover:text-white transition-colors duration-200">Terms of Service</a>
