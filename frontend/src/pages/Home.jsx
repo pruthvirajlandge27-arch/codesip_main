@@ -938,7 +938,7 @@ const Home = () => {
                   initial={{ opacity: 0, scale: 0.8 }}
                   animate={{ opacity: 1, scale: 1 }}
                   transition={{ duration: 1.2, ease: "easeOut" }}
-                  className="h-24 md:h-32 w-auto object-contain rounded-2xl shadow-[0_0_50px_rgba(0,180,216,0.4)] relative z-10"
+                  className="h-32 md:h-44 w-auto object-contain rounded-2xl shadow-[0_0_50px_rgba(0,180,216,0.4)] relative z-10"
                 />
               </div>
 
