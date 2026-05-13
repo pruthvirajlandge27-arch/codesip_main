@@ -82,7 +82,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-secondary font-mono mb-4 text-sm md:text-base tracking-wider"
         >
-         गांव से ग्लोबल तक
+         गाँव से ग्लोबल तक
         </motion.p>
 
         <motion.h1
