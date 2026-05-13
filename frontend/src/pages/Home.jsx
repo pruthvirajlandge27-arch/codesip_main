@@ -865,34 +865,7 @@ const Home = () => {
     return () => clearTimeout(timer);
   }, []);
 
-  // Inject Jotform Chatbot Script for the Main Page
-  useEffect(() => {
-    const scriptSrc = 'https://cdn.jotfor.ms/agent/embedjs/019e118dc41371be930cb8515da6294cd30d/embed.js?autoOpenChatIn=1';
-    
-    // Avoid duplicate script injection
-    if (!document.querySelector(`script[src="${scriptSrc}"]`)) {
-      const script = document.createElement('script');
-      script.src = scriptSrc;
-      script.async = true;
-      document.body.appendChild(script);
-    }
-
-    return () => {
-      // Clean up the script tag on unmount so it's strictly on the main page.
-      // Note: Full theming is best configured directly inside your Jotform Agent Dashboard
-      // to match the site's dark palette (e.g., primary: #0F172A, accent: #00B4D8).
-      const scriptElement = document.querySelector(`script[src="${scriptSrc}"]`);
-      if (scriptElement && document.body.contains(scriptElement)) {
-        document.body.removeChild(scriptElement);
-      }
-      
-      // Attempt to clean up any DOM elements the bot might have injected (Jotform specifics vary)
-      const agentNode = document.querySelector('agent-ui, .agent-chat-container, iframe[src*="agent.jotform"]');
-      if (agentNode) {
-        agentNode.remove();
-      }
-    };
-  }, []);
+  // Chatbot is now handled globally in index.html
 
   return (
     <>
