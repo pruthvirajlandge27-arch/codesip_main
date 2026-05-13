@@ -246,14 +246,27 @@ const MainLayout = () => {
               
               {/* Social Icons */}
               <div className="flex gap-4">
-                <a href="#" className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[#A0A0A0] hover:text-secondary hover:border-secondary/40 hover:bg-secondary/10 hover:shadow-[0_0_15px_rgba(0,255,136,0.2)] transition-all duration-300">
+                <a 
+                  href="https://www.linkedin.com/company/codesip-technology-llp/?viewAsMember=true" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[#A0A0A0] hover:text-secondary hover:border-secondary/40 hover:bg-secondary/10 hover:shadow-[0_0_15px_rgba(0,255,136,0.2)] transition-all duration-300"
+                >
                   <LinkedinIcon />
                 </a>
-                <a href="#" className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[#A0A0A0] hover:text-accent hover:border-accent/40 hover:bg-accent/10 hover:shadow-[0_0_15px_rgba(0,180,216,0.2)] transition-all duration-300">
-                  <TwitterIcon />
-                </a>
-                <a href="#" className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[#A0A0A0] hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:bg-[#E4405F]/10 hover:shadow-[0_0_15px_rgba(228,64,95,0.2)] transition-all duration-300">
+                <a 
+                  href="https://www.instagram.com/codesip?igsh=Y3F2ZnUxN2I4bHM2" 
+                  target="_blank" 
+                  rel="noopener noreferrer"
+                  className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[#A0A0A0] hover:text-[#E4405F] hover:border-[#E4405F]/40 hover:bg-[#E4405F]/10 hover:shadow-[0_0_15px_rgba(228,64,95,0.2)] transition-all duration-300"
+                >
                   <InstagramIcon />
+                </a>
+                <a 
+                  href="#" 
+                  className="w-10 h-10 rounded-lg border border-white/10 bg-white/5 flex items-center justify-center text-[#A0A0A0] hover:text-accent hover:border-accent/40 hover:bg-accent/10 hover:shadow-[0_0_15px_rgba(0,180,216,0.2)] transition-all duration-300"
+                >
+                  <TwitterIcon />
                 </a>
               </div>
             </div>
