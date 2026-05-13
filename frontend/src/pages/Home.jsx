@@ -538,7 +538,10 @@ const CoreTeam = () => {
       name: "Pruthviraj Landge",
       role: "Founder & CEO",
       image: founderImg,
-      socials: { linkedin: "#", twitter: "#" }
+      socials: { 
+        linkedin: "https://www.linkedin.com/company/codesip-technology-llp/?viewAsMember=true", 
+        twitter: "#" 
+      }
     }
   ];
 
