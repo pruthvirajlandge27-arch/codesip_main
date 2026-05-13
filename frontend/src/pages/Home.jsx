@@ -20,7 +20,7 @@ import event8 from '../assets/event8.jpg';
 import event9 from '../assets/event9.jpg';
 import event10 from '../assets/event10.jpg';
 import event11 from '../assets/event11.jpg';
-import { Lightbulb, ShieldCheck, Target, Award, Network, Scale, Rocket } from 'lucide-react';
+import { Lightbulb, ShieldCheck, Target, Award, Network, Scale, Rocket, ArrowRight } from 'lucide-react';
 
 const LinkedinIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" /><rect width="4" height="12" x="2" y="9" /><circle cx="4" cy="4" r="2" /></svg>
@@ -234,10 +234,15 @@ const Services = () => {
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
           {services.map((service, idx) => (
-            <Card key={idx} className="reveal">
-              <h3 className="text-xl font-bold text-white mb-3">{service.title}</h3>
-              <p className="text-gray-400">{service.desc}</p>
-            </Card>
+            <Link to={idx === 0 ? "/internships" : "/services"} key={idx} className="block group">
+              <Card className="reveal transition-all duration-300 group-hover:border-secondary/50 group-hover:shadow-[0_0_20px_rgba(0,255,136,0.2)]">
+                <h3 className="text-xl font-bold text-white mb-3 group-hover:text-secondary transition-colors">{service.title}</h3>
+                <p className="text-gray-400 group-hover:text-gray-300 transition-colors">{service.desc}</p>
+                <div className="mt-4 flex items-center gap-2 text-sm font-semibold text-secondary opacity-0 group-hover:opacity-100 transition-opacity">
+                  Learn More <ArrowRight size={16} />
+                </div>
+              </Card>
+            </Link>
           ))}
         </div>
       </div>

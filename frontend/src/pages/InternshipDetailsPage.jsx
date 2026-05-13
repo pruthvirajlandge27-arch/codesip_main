@@ -113,9 +113,9 @@ const InternshipDetailsPage = () => {
 
         {/* Application Form */}
         <motion.div 
-          initial={{ opacity: 0, y: 30 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
+          initial={{ opacity: 1 }}
+          animate={{ opacity: 1 }}
+          className="relative z-10"
         >
           <div className="bg-[#0F172A]/80 backdrop-blur-xl border border-white/10 p-8 md:p-10 rounded-3xl shadow-[0_8px_32px_rgba(0,0,0,0.3)]">
             <div className="flex items-center gap-3 mb-8 border-b border-white/10 pb-6">
@@ -179,21 +179,19 @@ const InternshipDetailsPage = () => {
                       accept=".pdf,.doc,.docx"
                       required
                       onChange={handleChange}
-                      className="hidden"
+                      className="absolute inset-0 w-full h-full opacity-0 cursor-pointer z-10"
                     />
-                    <button
-                      type="button"
-                      onClick={handleUploadClick}
-                      className="w-full h-12 bg-black/20 border border-white/5 rounded-xl px-4 text-[14px] text-gray-400 flex items-center gap-3 hover:border-accent/50 transition-all text-left"
+                    <div
+                      className="w-full h-12 bg-white/5 border border-white/10 rounded-xl px-4 text-[14px] text-gray-400 flex items-center gap-3 transition-all text-left"
                     >
-                      <FileText className="w-4 h-4 text-gray-500" />
+                      <FileText className="w-4 h-4 text-gray-400" />
                       <span className="flex-grow truncate">
                         {formData.resume ? formData.resume.name : 'Choose Resume File...'}
                       </span>
-                      <span className="text-[10px] bg-white/10 px-2 py-1 rounded text-gray-500 font-bold">
+                      <span className="text-[10px] bg-accent/20 text-accent px-2 py-1 rounded font-bold border border-accent/30">
                         BROWSE
                       </span>
-                    </button>
+                    </div>
                   </div>
                 </div>
               </div>
