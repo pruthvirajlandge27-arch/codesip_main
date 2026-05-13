@@ -7,7 +7,7 @@ import InternshipsPage from './pages/InternshipsPage';
 import CareersPage from './pages/CareersPage';
 import ContactPage from './pages/ContactPage';
 import FinalYearProjectPage from './pages/FinalYearProjectPage';
-import ManforcePage from './pages/ManforcePage';
+import ManpowerSupplyPage from './pages/ManforcePage';
 import MousCollabsPage from './pages/MousCollabsPage';
 import InternshipDetailsPage from './pages/InternshipDetailsPage';
 import AdminLogin from './pages/admin/AdminLogin';
@@ -81,7 +81,7 @@ function App() {
           <Route index element={<Home />} />
           <Route path="services" element={<ServicesPage />} />
           <Route path="services/final-year-project" element={<FinalYearProjectPage />} />
-          <Route path="services/manforce" element={<ManforcePage />} />
+          <Route path="services/manpower-supply" element={<ManpowerSupplyPage />} />
           <Route path="internships" element={<InternshipsPage />} />
           <Route path="internships/:domain" element={<InternshipDetailsPage />} />
           <Route path="careers" element={<CareersPage />} />

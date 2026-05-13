@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Users, Briefcase, Zap, Shield, CheckCircle2, Send, Code, Database, Globe, Layers } from 'lucide-react';
 import api from '../api/axios';
-const ManforcePage = () => {
+const ManpowerSupplyPage = () => {
   useEffect(() => {
     window.scrollTo(0, 0);
   }, []);
@@ -32,7 +32,7 @@ const ManforcePage = () => {
         name: formData.companyName,
         email: formData.email,
         serviceType: 'consulting',
-        budget: 'Manforce Staffing',
+        budget: 'Manpower Supply (Vendor)',
         details: `Phone: ${formData.phone}\nRole Required: ${formData.roleRequired}\nMessage: ${formData.message}`
       };
 
@@ -113,7 +113,7 @@ const ManforcePage = () => {
         {/* Why Choose Manforce Section */}
         <div className="mb-24">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-white mb-4 reveal">Why Choose CodeSip Manforce?</h2>
+            <h2 className="text-3xl font-bold text-white mb-4 reveal">Why Choose Codesip Manpower Supply?</h2>
             <p className="text-gray-400">Streamline your hiring process and focus on what matters most.</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -293,4 +293,4 @@ const ManforcePage = () => {
   );
 };
 
-export default ManforcePage;
+export default ManpowerSupplyPage;

@@ -24,7 +24,7 @@ const MainLayout = () => {
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services', dropdown: [
       { name: 'Final Year Project', path: '/services/final-year-project' },
-      { name: 'Manforce', path: '/services/manforce' }
+      { name: 'Manpower Supply (Vendor)', path: '/services/manpower-supply' }
     ]},
     { name: 'Internships', path: '/internships', dropdown: [
       { type: 'header', name: 'Engineering' },
@@ -212,7 +212,7 @@ const MainLayout = () => {
               <ul className="space-y-4">
                 {[
                   { name: 'Final Year Projects', path: '/services/final-year-project' },
-                  { name: 'Manforce Staffing', path: '/services/manforce' },
+                  { name: 'Manpower Supply (Vendor)', path: '/services/manpower-supply' },
                   { name: 'Internship Programs', path: '/internships' },
                   { name: 'Web & App Development', path: '/services' }
                 ].map((service) => (

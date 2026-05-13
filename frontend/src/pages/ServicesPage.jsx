@@ -45,6 +45,12 @@ const ServicesPage = () => {
       title: "Webinars & Seminars",
       desc: "Expert-led sessions to share knowledge, trends, and innovations.",
       icon: <Video size={28} className="text-secondary" />
+    },
+    {
+      title: "Manpower Supply (Vendor)",
+      desc: "IT Staff Augmentation & Outsourcing. We provide elite engineers and developers who seamlessly integrate into your workflows.",
+      icon: <Users size={28} className="text-accent" />,
+      path: "/services/manpower-supply"
     }
   ];
 
