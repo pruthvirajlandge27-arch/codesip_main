@@ -10,8 +10,16 @@ import oldmeegheLogo from '../assets/oldmeeghe.png';
 import prpoteLogo from '../assets/prpote.jpg';
 import sipnaLogo from '../assets/sipna.jpg';
 import event1 from '../assets/event1.jpg';
-import event4 from '../assets/event4.jpg';
+import event2 from '../assets/event2.jpg';
 import event3 from '../assets/event3.jpg';
+import event4 from '../assets/event4.jpg';
+import event5 from '../assets/event5.jpg';
+import event6 from '../assets/event6.jpg';
+import event7 from '../assets/event7.jpg';
+import event8 from '../assets/event8.jpg';
+import event9 from '../assets/event9.jpg';
+import event10 from '../assets/event10.jpg';
+import event11 from '../assets/event11.jpg';
 import { Lightbulb, ShieldCheck, Target, Award, Network, Scale, Rocket } from 'lucide-react';
 
 const LinkedinIcon = () => (
@@ -601,19 +609,52 @@ const CoreTeam = () => {
   );
 };
 
+const EventCard = ({ title, images, className, variants }) => {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const timer = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % images.length);
+    }, 3000);
+    return () => clearInterval(timer);
+  }, [images.length]);
+
+  return (
+    <motion.div variants={variants} className={className}>
+      <AnimatePresence mode="wait">
+        <motion.img
+          key={currentImageIndex}
+          src={images[currentImageIndex]}
+          alt={title}
+          initial={{ opacity: 0, scale: 1.1 }}
+          animate={{ opacity: 1, scale: 1.05 }}
+          exit={{ opacity: 0, scale: 1 }}
+          transition={{ duration: 0.8, ease: "easeInOut" }}
+          loading="lazy"
+          className="absolute inset-0 w-full h-full object-cover"
+        />
+      </AnimatePresence>
+      <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none"></div>
+      <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2">
+        <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] tracking-wide group-hover:text-secondary transition-colors duration-300">{title}</h3>
+      </div>
+    </motion.div>
+  );
+};
+
 const OurEvents = () => {
-  const events = [
+  const eventSections = [
     {
       title: "Team bonding & collaboration",
-      image: event1,
+      images: [event1, event4, event7, event10],
     },
     {
       title: "Innovation and learning culture",
-      image: event4,
+      images: [event2, event5, event8, event11],
     },
     {
       title: "Celebrating milestones together",
-      image: event3,
+      images: [event3, event6, event9],
     }
   ];
 
@@ -653,45 +694,27 @@ const OurEvents = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 lg:h-[600px] xl:h-[700px]"
         >
           <div className="flex flex-col gap-6 lg:gap-8 h-full">
-            <motion.div variants={itemVariants} className="relative group overflow-hidden rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.5)] flex-1 border border-white/10 hover:border-secondary hover:shadow-[0_0_30px_rgba(0,255,136,0.2)] transition-colors duration-500 cursor-pointer min-h-[250px] lg:min-h-0">
-              <img
-                src={events[0].image}
-                alt={events[0].title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none"></div>
-              <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2">
-                <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] tracking-wide group-hover:text-secondary transition-colors duration-300">{events[0].title}</h3>
-              </div>
-            </motion.div>
+            <EventCard 
+              title={eventSections[0].title}
+              images={eventSections[0].images}
+              variants={itemVariants}
+              className="relative group overflow-hidden rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.5)] flex-1 border border-white/10 hover:border-secondary hover:shadow-[0_0_30px_rgba(0,255,136,0.2)] transition-colors duration-500 cursor-pointer min-h-[250px] lg:min-h-0"
+            />
 
-            <motion.div variants={itemVariants} className="relative group overflow-hidden rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.5)] flex-1 border border-white/10 hover:border-secondary hover:shadow-[0_0_30px_rgba(0,255,136,0.2)] transition-colors duration-500 cursor-pointer min-h-[250px] lg:min-h-0">
-              <img
-                src={events[1].image}
-                alt={events[1].title}
-                loading="lazy"
-                className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105"
-              />
-              <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-80 group-hover:opacity-50 transition-opacity duration-500 pointer-events-none"></div>
-              <div className="absolute bottom-6 left-6 right-6 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2">
-                <h3 className="text-white text-xl md:text-2xl font-bold drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] tracking-wide group-hover:text-secondary transition-colors duration-300">{events[1].title}</h3>
-              </div>
-            </motion.div>
+            <EventCard 
+              title={eventSections[1].title}
+              images={eventSections[1].images}
+              variants={itemVariants}
+              className="relative group overflow-hidden rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.5)] flex-1 border border-white/10 hover:border-secondary hover:shadow-[0_0_30px_rgba(0,255,136,0.2)] transition-colors duration-500 cursor-pointer min-h-[250px] lg:min-h-0"
+            />
           </div>
 
-          <motion.div variants={itemVariants} className="relative group overflow-hidden rounded-[20px] shadow-[0_0_30px_rgba(0,0,0,0.6)] h-[400px] lg:h-full border border-white/10 hover:border-secondary hover:shadow-[0_0_30px_rgba(0,255,136,0.2)] transition-colors duration-500 cursor-pointer">
-            <img
-              src={events[2].image}
-              alt={events[2].title}
-              loading="lazy"
-              className="absolute inset-0 w-full h-full object-cover transition-all duration-[800ms] ease-out group-hover:scale-105"
-            />
-            <div className="absolute inset-0 bg-gradient-to-t from-primary/95 via-primary/20 to-transparent opacity-90 group-hover:opacity-60 transition-opacity duration-500 pointer-events-none"></div>
-            <div className="absolute bottom-8 left-8 right-8 z-10 pointer-events-none transition-transform duration-500 group-hover:-translate-y-2">
-              <h3 className="text-white text-2xl md:text-3xl lg:text-4xl font-bold drop-shadow-[0_4px_6px_rgba(0,0,0,0.8)] tracking-wide group-hover:text-secondary transition-colors duration-300">{events[2].title}</h3>
-            </div>
-          </motion.div>
+          <EventCard 
+            title={eventSections[2].title}
+            images={eventSections[2].images}
+            variants={itemVariants}
+            className="relative group overflow-hidden rounded-[20px] shadow-[0_0_30px_rgba(0,0,0,0.6)] h-[400px] lg:h-full border border-white/10 hover:border-secondary hover:shadow-[0_0_30px_rgba(0,255,136,0.2)] transition-colors duration-500 cursor-pointer"
+          />
 
         </motion.div>
       </div>
