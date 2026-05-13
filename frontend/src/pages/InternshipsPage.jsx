@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
-import { ArrowRight, Shield, Database, Coffee, Link as LinkIcon, CheckCircle2, Lock } from 'lucide-react';
+import { ArrowRight, Shield, Database, Coffee, Link as LinkIcon, CheckCircle2, Lock, Globe } from 'lucide-react';
 import NetworkBackground from '../components/ui/NetworkBackground';
 import DottedWaveBackground from '../components/ui/DottedWaveBackground';
 
@@ -22,70 +23,52 @@ const InternshipsPage = () => {
 
   const domains = [
     {
-      title: "Cybersecurity",
-      icon: <Shield size={28} className="text-secondary" />,
-      projects: [
-        "Phishing Detection System",
-        "Secure File Sharing App",
-        "Fake Website Detector",
-        "Intrusion Detection System",
-        "Password Analyzer Tool"
-      ]
+      slug: 'frontend',
+      title: "Frontend Development",
+      icon: <Globe size={28} className="text-secondary" />,
+      projects: ["Modern Portfolio Site", "SaaS Landing Page", "Real-time Chat App", "E-commerce UI", "Dashboard Theme"]
     },
     {
-      title: "Java Fullstack Development",
-      icon: <Coffee size={28} className="text-secondary" />,
-      projects: [
-        "Resume Analyzer",
-        "Voting System",
-        "Finance Tracker",
-        "Ride Sharing Platform",
-        "Scholarship Portal"
-      ]
-    },
-    {
-      title: "Python Full Stack",
+      slug: 'backend',
+      title: "Backend Development",
       icon: <Database size={28} className="text-accent" />,
-      projects: [
-        "E-commerce Dashboard",
-        "Task Automation App",
-        "Social Media Analytics",
-        "Inventory Management System",
-        "Booking Platform"
-      ]
+      projects: ["RESTful API Suite", "Auth Service", "Database Architect", "Streaming Server", "Web Scraper AI"]
     },
     {
-      title: "Blockchain",
-      icon: <LinkIcon size={28} className="text-accent" />,
-      projects: [
-        "Decentralized Notes System",
-        "Health Record Storage",
-        "Identity Verification System",
-        "Voting Platform",
-        "Certificate Validation System"
-      ]
+      slug: 'full-stack',
+      title: "Full Stack Development",
+      icon: <Lock size={28} className="text-secondary" />,
+      projects: ["Complete E-commerce", "Social Media App", "Booking Platform", "LMS System", "Project Management Tool"]
     },
     {
-      title: "Full Stack Web Development",
-      icon: <Shield size={28} className="text-secondary" />,
-      projects: [
-        "Modern Portfolio Site",
-        "SaaS Landing Page",
-        "Real-time Chat App",
-        "Booking & Scheduling App",
-        "Progress Tracker Dashboard"
-      ]
+      slug: 'ai-ml',
+      title: "AI & Machine Learning",
+      icon: <Shield size={28} className="text-accent" />,
+      projects: ["Predictive Analysis", "Chatbot AI", "Image Recognition", "Sentiment Analysis", "Trading Bot"]
     },
     {
-      title: "Application Development",
-      icon: <Coffee size={28} className="text-secondary" />,
-      projects: [
-        "Mobile Utility App",
-        "Productivity Planner",
-        "Customer Feedback Portal",
-        "Event Management App",
-        "Smart Task Organizer"
-      ]
+      slug: 'data-science',
+      title: "Data Science & Analytics",
+      icon: <Database size={28} className="text-secondary" />,
+      projects: ["Market Trends Bot", "User Behavior Map", "Financial Forecaster", "Big Data Pipeline", "AI Insights Engine"]
+    },
+    {
+      slug: 'marketing',
+      title: "Digital Marketing",
+      icon: <Globe size={28} className="text-accent" />,
+      projects: ["SEO Strategy", "Content Automation", "Ad Campaigns", "Social Growth Bot", "Email Funnel AI"]
+    },
+    {
+      slug: 'finance',
+      title: "Finance & Fintech",
+      icon: <Lock size={28} className="text-secondary" />,
+      projects: ["Fintech Dashboard", "Crypto Tracker", "Budgeting Tool", "Invoice Generator", "Loan Calculator"]
+    },
+    {
+      slug: 'mba',
+      title: "MBA & Management",
+      icon: <Shield size={28} className="text-accent" />,
+      projects: ["Business Strategy", "HR Portal", "Operations Tracker", "Sales Analytics", "Customer Success Map"]
     }
   ];
 
@@ -127,7 +110,7 @@ const InternshipsPage = () => {
       </section>
 
       {/* 2. INTERNSHIP DOMAINS GRID */}
-      <section className="py-24 relative overflow-hidden bg-[#0A0F1C]">
+      <section id="domains" className="py-24 relative overflow-hidden bg-[#0A0F1C]">
         <div className="absolute inset-0 opacity-30 pointer-events-none">
           <DottedWaveBackground />
         </div>
@@ -144,14 +127,14 @@ const InternshipsPage = () => {
               <motion.div 
                 key={idx}
                 variants={itemVariants}
-                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-[16px] p-6 hover:-translate-y-2 hover:scale-[1.03] hover:border-secondary/40 shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_10px_40px_rgba(0,255,136,0.15)] transition-all duration-500 group flex flex-col items-start relative overflow-hidden h-[450px]"
+                className="bg-white/5 backdrop-blur-md border border-white/10 rounded-[16px] p-6 hover:-translate-y-2 hover:scale-[1.03] hover:border-secondary/40 shadow-[0_4px_20px_rgba(0,0,0,0.3)] hover:shadow-[0_10px_40px_rgba(0,255,136,0.15)] transition-all duration-500 group flex flex-col items-start relative overflow-hidden h-[480px]"
               >
                 <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-white/10 to-transparent border border-white/5 flex items-center justify-center text-white mb-6 group-hover:scale-110 transition-transform duration-500 shadow-[inset_0_2px_10px_rgba(255,255,255,0.1)]">
                   {domain.icon}
                 </div>
                 <h3 className="text-xl font-bold text-white tracking-wide font-heading mb-4">{domain.title}</h3>
                 
-                <ul className="space-y-4 w-full relative z-0">
+                <ul className="space-y-4 w-full flex-grow">
                   {domain.projects.map((project, i) => (
                     <li key={i} className="flex items-center gap-3 text-[14px] text-[#A0A0A0] font-medium tracking-wide">
                       <div className="w-1.5 h-1.5 rounded-full bg-accent/60"></div>
@@ -160,14 +143,12 @@ const InternshipsPage = () => {
                   ))}
                 </ul>
 
-                {/* 4. LOCKED CONTENT FADE */}
-                <div className="absolute bottom-0 left-0 w-full h-[150px] bg-gradient-to-t from-[#0A0F1C] via-[#0A0F1C]/90 to-transparent flex flex-col items-center justify-end pb-6 px-4 z-10 transition-colors duration-300 group-hover:from-[#111827]">
-                   <div className="bg-primary/95 border border-white/10 px-5 py-2.5 rounded-full flex items-center gap-2.5 shadow-lg backdrop-blur-xl translate-y-2 group-hover:translate-y-0 transition-transform duration-300 hover:border-secondary/30 cursor-default">
-                     <Lock size={15} className="text-secondary" />
-                     <span className="text-[12px] md:text-[13px] font-semibold text-white tracking-wide">Unlock details upon enrollment</span>
-                   </div>
-                </div>
-
+                <Link 
+                  to={`/internships/${domain.slug}`}
+                  className="mt-6 w-full py-3 bg-secondary/10 hover:bg-secondary text-secondary hover:text-primary font-bold text-sm rounded-xl border border-secondary/30 transition-all duration-300 flex items-center justify-center gap-2"
+                >
+                  Apply Now <ArrowRight size={16} />
+                </Link>
               </motion.div>
             ))}
           </motion.div>
@@ -229,8 +210,11 @@ const InternshipsPage = () => {
              viewport={{ once: true }}
              transition={{ duration: 0.8, delay: 0.2 }}
           >
-             <button className="px-8 py-4 bg-accent hover:bg-[#0096B4] text-primary text-[16px] font-bold rounded-xl shadow-[0_4px_20px_rgba(0,180,216,0.4)] hover:shadow-[0_8px_35px_rgba(0,180,216,0.6)] transition-all duration-300 hover:-translate-y-1 active:scale-95 flex items-center gap-3 mx-auto border border-transparent hover:border-white/20">
-               Apply for Internship <ArrowRight size={20} />
+             <button 
+               onClick={() => document.getElementById('domains').scrollIntoView({ behavior: 'smooth' })}
+               className="px-8 py-4 bg-accent hover:bg-[#0096B4] text-primary text-[16px] font-bold rounded-xl shadow-[0_4px_20px_rgba(0,180,216,0.4)] hover:shadow-[0_8px_35px_rgba(0,180,216,0.6)] transition-all duration-300 hover:-translate-y-1 active:scale-95 flex items-center gap-3 mx-auto border border-transparent hover:border-white/20"
+             >
+               Explore Domains <ArrowRight size={20} />
              </button>
           </motion.div>
         </div>
