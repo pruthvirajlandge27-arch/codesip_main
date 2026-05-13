@@ -164,7 +164,7 @@ const InternshipDetailsPage = () => {
                   />
                 </div>
                 <div className="flex flex-col gap-1.5 focus-within:text-accent">
-                  <label className="text-[13px] font-medium text-gray-400">Resume (PDF/DOCX)</label>
+                  <label className="text-[13px] font-medium text-gray-400">Upload Resume</label>
                   <div className="relative">
                     <input 
                       type="file" 
@@ -180,7 +180,7 @@ const InternshipDetailsPage = () => {
                       className="w-full h-12 bg-black/20 border border-white/5 rounded-xl px-4 text-[14px] text-gray-400 flex items-center gap-3 cursor-pointer hover:border-accent/50 transition-all"
                     >
                       <FileText className="w-4 h-4 text-gray-500" />
-                      {formData.resume ? formData.resume.name : 'Browse Resume'}
+                      {formData.resume ? formData.resume.name : 'Upload Resume File'}
                     </label>
                   </div>
                 </div>
