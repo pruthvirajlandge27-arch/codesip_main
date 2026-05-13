@@ -5,7 +5,7 @@ import Application from '../models/Application.js';
 // @access  Public
 export const submitApplication = async (req, res, next) => {
   try {
-    const { name, email, phone, domain, resumeLink, coverLetter } = req.body;
+    const { name, email, phone, domain, coverLetter } = req.body;
     
     // Check if user already applied for this domain
     const applicationExists = await Application.findOne({ email, domain });
@@ -14,13 +14,21 @@ export const submitApplication = async (req, res, next) => {
       throw new Error('You have already applied for this internship domain');
     }
 
+    let resumePath = '';
+    if (req.file) {
+      resumePath = `/uploads/${req.file.filename}`;
+    } else {
+      res.status(400);
+      throw new Error('Please upload a resume');
+    }
+
     const application = await Application.create({
-      user: req.user ? req.user._id : undefined, // Attach user if logged in, otherwise undefined
+      user: req.user ? req.user._id : undefined,
       name,
       email,
       phone,
       domain,
-      resumeLink,
+      resumeLink: resumePath,
       coverLetter
     });
 

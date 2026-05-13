@@ -27,7 +27,7 @@ const InternshipDetailsPage = () => {
     name: '',
     email: '',
     phone: '',
-    resumeLink: '',
+    resume: null,
     coverLetter: ''
   });
 
@@ -36,7 +36,11 @@ const InternshipDetailsPage = () => {
   const [errorMsg, setErrorMsg] = useState('');
 
   const handleChange = (e) => {
-    setFormData({ ...formData, [e.target.name]: e.target.value });
+    if (e.target.name === 'resume') {
+      setFormData({ ...formData, resume: e.target.files[0] });
+    } else {
+      setFormData({ ...formData, [e.target.name]: e.target.value });
+    }
   };
 
   const handleSubmit = async (e) => {
@@ -45,20 +49,26 @@ const InternshipDetailsPage = () => {
     setErrorMsg('');
 
     try {
-      const payload = {
-        name: formData.name,
-        email: formData.email,
-        phone: formData.phone,
-        domain: details.title, // Send the actual title as the domain
-        resumeLink: formData.resumeLink,
-        coverLetter: formData.coverLetter
-      };
+      // Use FormData for file upload
+      const data = new FormData();
+      data.append('name', formData.name);
+      data.append('email', formData.email);
+      data.append('phone', formData.phone);
+      data.append('domain', details.title);
+      if (formData.resume) {
+        data.append('resume', formData.resume);
+      }
+      data.append('coverLetter', formData.coverLetter);
 
-      const response = await api.post('/applications', payload);
+      const response = await api.post('/applications', data, {
+        headers: {
+          'Content-Type': 'multipart/form-data'
+        }
+      });
 
       if (response.status === 201) {
         setIsSuccess(true);
-        setFormData({ name: '', email: '', phone: '', resumeLink: '', coverLetter: '' });
+        setFormData({ name: '', email: '', phone: '', resume: null, coverLetter: '' });
       }
     } catch (error) {
       setErrorMsg(error.response?.data?.message || 'Error submitting application. Please try again.');
@@ -154,18 +164,24 @@ const InternshipDetailsPage = () => {
                   />
                 </div>
                 <div className="flex flex-col gap-1.5 focus-within:text-accent">
-                  <label className="text-[13px] font-medium text-gray-400">Resume Link (Google Drive / Portfolio)</label>
+                  <label className="text-[13px] font-medium text-gray-400">Resume (PDF/DOCX)</label>
                   <div className="relative">
                     <input 
-                      type="url" 
-                      name="resumeLink"
+                      type="file" 
+                      name="resume"
+                      accept=".pdf,.doc,.docx"
                       required
-                      value={formData.resumeLink}
                       onChange={handleChange}
-                      className="w-full h-12 bg-black/20 border border-white/5 rounded-xl pl-10 pr-4 text-[14px] text-white focus:outline-none focus:border-accent/80 transition-all placeholder-gray-600"
-                      placeholder="https://..."
+                      className="hidden"
+                      id="resume-upload"
                     />
-                    <FileText className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-gray-500" />
+                    <label 
+                      htmlFor="resume-upload"
+                      className="w-full h-12 bg-black/20 border border-white/5 rounded-xl px-4 text-[14px] text-gray-400 flex items-center gap-3 cursor-pointer hover:border-accent/50 transition-all"
+                    >
+                      <FileText className="w-4 h-4 text-gray-500" />
+                      {formData.resume ? formData.resume.name : 'Browse Resume'}
+                    </label>
                   </div>
                 </div>
               </div>
