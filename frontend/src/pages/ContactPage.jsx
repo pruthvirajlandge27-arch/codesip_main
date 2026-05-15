@@ -175,7 +175,7 @@ const ContactPage = () => {
             <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary/20 group-hover:border-secondary/40 transition-colors shadow-inner">
               <MapPin size={18} className="text-secondary" />
             </div>
-            <span className="text-[15px] tracking-wide">Registered HQ: Amravati, Maharashtra</span>
+            <span className="text-[15px] tracking-wide">Registered HQ: Amravati, Navi Mumbai, Maharashtra</span>
           </div>
 
           <div className="flex flex-col gap-2 text-gray-400">
@@ -187,7 +187,6 @@ const ContactPage = () => {
             </div>
             <div className="ml-12 flex flex-col gap-1">
               <span className="text-[15px] tracking-wide">• Pune, Maharashtra</span>
-              <span className="text-[15px] tracking-wide">• Navi Mumbai, Maharashtra</span>
             </div>
           </div>
         </motion.div>

@@ -55,7 +55,7 @@ const Terms = () => {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">5. Governing Law</h2>
             <p>
-              These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Amravati, Maharashtra.
+              These terms are governed by the laws of India. Any disputes shall be subject to the exclusive jurisdiction of the courts in Amravati or Navi Mumbai, Maharashtra.
             </p>
           </section>
 
