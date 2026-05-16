@@ -2,13 +2,13 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { Home } from 'lucide-react';
-import NetworkBackground from '../components/ui/NetworkBackground';
+import FloatingDotsBackground from '../components/ui/FloatingDotsBackground';
 
 const NotFoundPage = () => {
   return (
     <div className="min-h-screen bg-primary flex items-center justify-center relative overflow-hidden font-sans">
       <div className="absolute inset-0 opacity-40 pointer-events-none">
-        <NetworkBackground />
+        <FloatingDotsBackground />
       </div>
       <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[500px] h-[500px] bg-accent/10 rounded-full blur-[100px] pointer-events-none"></div>
 

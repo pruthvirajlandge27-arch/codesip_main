@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion';
 import { ArrowRight, Shield, Database, Coffee, Link as LinkIcon, CheckCircle2, Lock, Globe } from 'lucide-react';
-import NetworkBackground from '../components/ui/NetworkBackground';
+import FloatingDotsBackground from '../components/ui/FloatingDotsBackground';
 import DottedWaveBackground from '../components/ui/DottedWaveBackground';
 
 const InternshipsPage = () => {
@@ -90,7 +90,7 @@ const InternshipsPage = () => {
       {/* 1. HERO SECTION */}
       <section className="relative pt-32 pb-24 md:pt-48 md:pb-32 overflow-hidden flex flex-col items-center justify-center border-b border-white/5">
         <div className="absolute inset-0 opacity-40 pointer-events-none">
-          <NetworkBackground />
+          <FloatingDotsBackground />
         </div>
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-secondary/10 rounded-full blur-[120px] pointer-events-none"></div>
         
@@ -192,7 +192,7 @@ const InternshipsPage = () => {
       {/* 6. CTA SECTION */}
       <section className="py-32 relative overflow-hidden bg-gradient-to-b from-[#0B0F19] to-[#050810]">
         <div className="absolute inset-0 opacity-40 pointer-events-none">
-          <NetworkBackground />
+          <FloatingDotsBackground />
         </div>
         <div className="relative z-10 max-w-4xl mx-auto text-center px-4">
           <motion.h2 

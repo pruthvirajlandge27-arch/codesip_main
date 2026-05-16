@@ -95,3 +95,39 @@ h1, h2, h3, h4, h5, h6 {
 .text-glow {
   text-shadow: 0 0 15px currentColor;
 }
+
+@keyframes float-up {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  20% {
+    opacity: 0.8;
+  }
+  80% {
+    opacity: 0.8;
+  }
+  100% {
+    transform: translateY(-100vh) scale(1.2);
+    opacity: 0;
+  }
+}
+
+@keyframes pulse-glow {
+  0%, 100% {
+    opacity: 0.4;
+    filter: blur(2px) brightness(1);
+  }
+  50% {
+    opacity: 1;
+    filter: blur(4px) brightness(1.5);
+  }
+}
+
+.animate-float-up {
+  animation: float-up linear infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow ease-in-out infinite;
+}

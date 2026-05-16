@@ -34,7 +34,7 @@ const InstagramIcon = () => (
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
 import Input from '../components/ui/Input';
-import NetworkBackground from '../components/ui/NetworkBackground';
+import FloatingDotsBackground from '../components/ui/FloatingDotsBackground';
 import WaveBackground from '../components/ui/WaveBackground';
 import DottedWaveBackground from '../components/ui/DottedWaveBackground';
 import RadialWaveBackground from '../components/ui/RadialWaveBackground';
@@ -80,7 +80,7 @@ const Hero = () => {
   return (
     <section className="min-h-screen flex items-center justify-center relative overflow-hidden px-4">
       <div className="absolute inset-0 z-0 bg-[radial-gradient(ellipse_at_center,_var(--tw-gradient-stops))] from-accent/20 via-primary to-primary">
-        <NetworkBackground />
+        <FloatingDotsBackground />
       </div>
 
       <motion.div
@@ -158,50 +158,84 @@ const Projects = () => {
 
   return (
     <section className="py-32 bg-primary relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 mb-16 relative z-10 text-center">
-        <h2 className="text-4xl md:text-5xl font-bold mb-4 reveal">Elite <span className="text-accent">Projects</span></h2>
-        <p className="text-gray-400 text-lg">Pioneering the future of technology solutions.</p>
+      {/* Background theme integration */}
+      <div className="absolute inset-0 opacity-20 pointer-events-none">
+        <FloatingDotsBackground count={20} />
       </div>
 
-      <div className="relative flex overflow-hidden py-10">
-        <div className="absolute top-0 left-0 w-32 md:w-64 h-full bg-gradient-to-r from-primary to-transparent z-20 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-32 md:w-64 h-full bg-gradient-to-l from-primary to-transparent z-20 pointer-events-none"></div>
+      <div className="max-w-7xl mx-auto px-4 mb-20 relative z-10 text-center">
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.8 }}
+        >
+          <h2 className="text-4xl md:text-6xl font-bold mb-6 reveal">
+            Elite <span className="text-accent drop-shadow-[0_0_15px_rgba(0,180,216,0.4)]">Projects</span>
+          </h2>
+          <p className="text-gray-400 text-lg md:text-xl max-w-2xl mx-auto">
+            Pioneering the future of technology solutions through intelligent automation and agentic architectures.
+          </p>
+        </motion.div>
+      </div>
 
-        <div className="flex w-max animate-[scroll-x_25s_linear_infinite] hover:[animation-play-state:paused] group/scroller">
+      <div className="relative flex overflow-hidden py-12">
+        {/* Edge masks for smooth fading */}
+        <div className="absolute top-0 left-0 w-40 md:w-80 h-full bg-gradient-to-r from-primary via-primary/80 to-transparent z-20 pointer-events-none"></div>
+        <div className="absolute top-0 right-0 w-40 md:w-80 h-full bg-gradient-to-l from-primary via-primary/80 to-transparent z-20 pointer-events-none"></div>
+
+        <div className="flex w-max animate-[scroll-x_50s_linear_infinite] hover:[animation-play-state:paused] group/scroller will-change-transform">
           {[1, 2].map((group) => (
-            <div key={group} className="flex gap-8 px-4">
+            <div key={group} className="flex gap-10 px-5">
               {projects.map((proj, idx) => (
                 <div
                   key={idx}
-                  className="w-[350px] flex-shrink-0 relative transition-all duration-500 group/card hover:z-50 group-hover/scroller:opacity-40 hover:!opacity-100 group-hover/scroller:blur-[4px] hover:!blur-none"
+                  className="w-[380px] flex-shrink-0 relative transition-all duration-700 group/card hover:z-50"
                 >
-                  <Card
-                    className="flex flex-col transition-all duration-500 ease-out group-hover/card:scale-[1.15] group-hover/card:-translate-y-4 group-hover/card:shadow-[0_0_40px_rgba(0,180,216,0.3)] group-hover/card:border-accent/80 border-white/10 relative overflow-hidden reveal"
+                  <div
+                    className="h-[450px] relative rounded-[24px] overflow-hidden border border-white/10 group-hover/card:border-accent/50 transition-all duration-500 shadow-2xl group-hover/card:shadow-[0_20px_50px_rgba(0,180,216,0.3)] group-hover/card:-translate-y-4 bg-[#111827]"
                   >
-                    {/* Background image overlay */}
+                    {/* Background Image with better contrast */}
                     <div
-                      className="absolute inset-0 z-0 bg-cover bg-center opacity-30 group-hover/card:opacity-50 transition-opacity duration-500 mix-blend-screen"
+                      className="absolute inset-0 z-0 bg-cover bg-center transition-transform duration-1000 group-hover/card:scale-110"
                       style={{ backgroundImage: `url(${proj.image})` }}
                     />
-                    <div className="absolute inset-0 z-0 bg-gradient-to-t from-primary/95 via-primary/60 to-primary/20"></div>
+                    {/* Multi-layered overlays for readability */}
+                    <div className="absolute inset-0 z-0 bg-gradient-to-b from-primary/20 via-primary/60 to-primary/95 group-hover/card:via-primary/40 group-hover/card:to-primary/90 transition-all duration-500"></div>
+                    <div className="absolute inset-0 z-0 opacity-0 group-hover/card:opacity-40 bg-gradient-to-tr from-accent/40 to-transparent transition-opacity duration-500"></div>
 
-                    <div className="relative z-10 flex flex-col h-full mt-8">
-                      <h3 className="text-2xl font-bold text-white mb-2 group-hover/card:text-accent transition-colors duration-300">{proj.title}</h3>
+                    <div className="relative z-10 flex flex-col justify-end h-full p-8">
+                      <h3 className="text-2xl md:text-3xl font-bold text-white mb-3 group-hover/card:text-accent transition-colors duration-300">
+                        {proj.title}
+                      </h3>
 
-                      <div className="grid transition-all duration-500 grid-rows-[1fr] group-hover/card:grid-rows-[0fr] opacity-100 group-hover/card:opacity-0 overflow-hidden">
-                        <div className="min-h-0">
-                          <p className="text-gray-300 drop-shadow-md">{proj.desc}</p>
-                        </div>
-                      </div>
-
-                      <div className="grid transition-all duration-500 grid-rows-[0fr] group-hover/card:grid-rows-[1fr] opacity-0 group-hover/card:opacity-100 overflow-hidden">
-                        <div className="min-h-0 flex flex-col gap-5 pt-2">
-                          <p className="text-gray-200 text-sm leading-relaxed drop-shadow-md">{proj.fullDesc}</p>
-                          <Button variant="secondary" className="w-full text-sm py-2 shadow-none border-white/30 backdrop-blur-sm">View Project</Button>
+                      {/* Content visibility control */}
+                      <div className="space-y-4">
+                        <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-2 group-hover/card:line-clamp-none transition-all duration-500">
+                          {proj.desc}
+                        </p>
+                        
+                        <div className="h-0 opacity-0 group-hover/card:h-auto group-hover/card:opacity-100 transition-all duration-500 overflow-hidden">
+                          <p className="text-gray-400 text-sm mb-6 border-l-2 border-accent/40 pl-4 italic">
+                            {proj.fullDesc}
+                          </p>
+                          <Button 
+                            variant="secondary" 
+                            className="w-full py-3 bg-white/5 hover:bg-accent hover:text-primary border-white/20 hover:border-accent transition-all duration-300 text-sm font-bold uppercase tracking-widest relative overflow-hidden group/btn"
+                          >
+                            <span className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full skew-x-12 group-hover/btn:animate-[shine_1s_ease-in-out]"></span>
+                            <span className="relative z-10">View Details</span>
+                          </Button>
                         </div>
                       </div>
                     </div>
-                  </Card>
+
+                    {/* Subtle corner glow */}
+                    <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
+                    
+                    {/* Shine effect on card hover */}
+                    <div className="absolute inset-0 w-full h-full bg-white/5 -translate-x-full skew-x-12 group-hover/card:animate-[shine_1.5s_ease-in-out] pointer-events-none"></div>
+                  </div>
                 </div>
               ))}
             </div>
@@ -744,7 +778,7 @@ const Contact = () => {
   return (
     <section className="py-24 md:py-32 bg-primary relative overflow-hidden">
       <div className="absolute inset-0 opacity-50 mix-blend-screen pointer-events-none">
-        <NetworkBackground />
+        <FloatingDotsBackground />
       </div>
       <div className="absolute top-1/4 left-1/4 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[150px] pointer-events-none"></div>
 
@@ -879,7 +913,7 @@ const Home = () => {
           >
             {/* Background ambient AI glow */}
             <div className="absolute inset-0 z-0 opacity-20 pointer-events-none">
-              <NetworkBackground />
+              <FloatingDotsBackground />
             </div>
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/10 rounded-full blur-[150px] pointer-events-none animate-pulse"></div>
 
