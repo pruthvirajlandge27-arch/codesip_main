@@ -179,10 +179,10 @@ const Projects = () => {
         </motion.div>
       </div>
 
-      <div className="relative flex overflow-hidden py-12">
-        {/* Edge masks for smooth fading */}
-        <div className="absolute top-0 left-0 w-40 md:w-80 h-full bg-gradient-to-r from-primary via-primary/80 to-transparent z-20 pointer-events-none"></div>
-        <div className="absolute top-0 right-0 w-40 md:w-80 h-full bg-gradient-to-l from-primary via-primary/80 to-transparent z-20 pointer-events-none"></div>
+      <div className="relative flex overflow-hidden py-12 group/carousel">
+        {/* Edge masks for smooth fading - fade out on hover so side cards are fully visible */}
+        <div className="absolute top-0 left-0 w-40 md:w-80 h-full bg-gradient-to-r from-primary via-primary/80 to-transparent z-20 pointer-events-none transition-opacity duration-500 group-hover/carousel:opacity-0"></div>
+        <div className="absolute top-0 right-0 w-40 md:w-80 h-full bg-gradient-to-l from-primary via-primary/80 to-transparent z-20 pointer-events-none transition-opacity duration-500 group-hover/carousel:opacity-0"></div>
 
         <div className="flex w-max animate-[scroll-x_50s_linear_infinite] hover:[animation-play-state:paused] group/scroller will-change-transform">
           {[1, 2].map((group) => (
