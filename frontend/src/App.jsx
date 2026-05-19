@@ -23,10 +23,32 @@ const AdminLogin = React.lazy(() => import('./pages/admin/AdminLogin'));
 const AdminDashboard = React.lazy(() => import('./pages/admin/AdminDashboard'));
 const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
 
-// A simple fallback component
+// Smooth aesthetic loader to prevent jarring flashes
 const PageLoader = () => (
-  <div className="flex items-center justify-center min-h-screen bg-primary">
-    <div className="w-10 h-10 border-4 border-secondary/20 border-t-secondary rounded-full animate-spin"></div>
+  <div className="fixed inset-0 z-[9999] flex flex-col items-center justify-center bg-[#050B14]">
+    <style>
+      {`
+        @keyframes subtleFadeIn {
+          0% { opacity: 0; }
+          50% { opacity: 0; }
+          100% { opacity: 1; }
+        }
+        .animate-delayed-fade {
+          animation: subtleFadeIn 0.4s ease-in-out forwards;
+        }
+      `}
+    </style>
+    <div className="animate-delayed-fade flex flex-col items-center justify-center">
+      <div className="relative flex items-center justify-center">
+        {/* Outer spinning ring */}
+        <div className="absolute w-16 h-16 border-2 border-t-secondary border-r-transparent border-b-accent border-l-transparent rounded-full animate-spin"></div>
+        {/* Inner pulsing core */}
+        <div className="w-6 h-6 bg-gradient-to-tr from-secondary to-accent rounded-full animate-pulse shadow-[0_0_15px_rgba(0,255,136,0.5)]"></div>
+      </div>
+      <div className="mt-6 text-gray-400 font-mono text-xs tracking-[0.3em] animate-pulse">
+        LOADING...
+      </div>
+    </div>
   </div>
 );
 
