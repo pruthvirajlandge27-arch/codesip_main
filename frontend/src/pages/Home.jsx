@@ -29,7 +29,7 @@ const TwitterIcon = () => (
   <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 5c2.2 2.6 5.6 4.1 9 4-.9-4.2 4-6.6 7-3.8 1.1 0 3-1.2 3-1.2z" /></svg>
 );
 const InstagramIcon = () => (
-  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/><line x1="17.5" x2="17.51" y1="6.5" y2="6.5"/></svg>
+  <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><rect width="20" height="20" x="2" y="2" rx="5" ry="5" /><path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" /><line x1="17.5" x2="17.51" y1="6.5" y2="6.5" /></svg>
 );
 import Button from '../components/ui/Button';
 import Card from '../components/ui/Card';
@@ -93,7 +93,7 @@ const Hero = () => {
           variants={itemVariants}
           className="text-secondary font-mono mb-4 text-sm md:text-base tracking-wider"
         >
-         गाँव से ग्लोबल तक
+          गाँव से ग्लोबल तक
         </motion.p>
 
         <motion.h1
@@ -214,13 +214,13 @@ const Projects = () => {
                         <p className="text-gray-300 text-sm md:text-base leading-relaxed line-clamp-2 group-hover/card:line-clamp-none transition-all duration-500">
                           {proj.desc}
                         </p>
-                        
+
                         <div className="h-0 opacity-0 group-hover/card:h-auto group-hover/card:opacity-100 transition-all duration-500 overflow-hidden">
                           <p className="text-gray-400 text-sm mb-6 border-l-2 border-accent/40 pl-4 italic">
                             {proj.fullDesc}
                           </p>
-                          <Button 
-                            variant="secondary" 
+                          <Button
+                            variant="secondary"
                             className="w-full py-3 bg-white/5 hover:bg-accent hover:text-primary border-white/20 hover:border-accent transition-all duration-300 text-sm font-bold uppercase tracking-widest relative overflow-hidden group/btn"
                           >
                             <span className="absolute inset-0 w-full h-full bg-white/20 -translate-x-full skew-x-12 group-hover/btn:animate-[shine_1s_ease-in-out]"></span>
@@ -232,7 +232,7 @@ const Projects = () => {
 
                     {/* Subtle corner glow */}
                     <div className="absolute -bottom-10 -right-10 w-32 h-32 bg-accent/20 rounded-full blur-3xl opacity-0 group-hover/card:opacity-100 transition-opacity duration-700"></div>
-                    
+
                     {/* Shine effect on card hover */}
                     <div className="absolute inset-0 w-full h-full bg-white/5 -translate-x-full skew-x-12 group-hover/card:animate-[shine_1.5s_ease-in-out] pointer-events-none"></div>
                   </div>
@@ -569,12 +569,12 @@ const CoreValues = () => {
 const CoreTeam = () => {
   const team = [
     {
-      name: "Pruthviraj Landge",
+      name: "Pruthwiraj Landge",
       role: "Founder & CEO",
       image: founderImg,
-      socials: { 
-        linkedin: "https://www.linkedin.com/in/pruthwi-landge-b11a3a202/", 
-        instagram: "https://www.instagram.com/pruthvirajlandge.official.07?igsh=dGJ6djU4bjZoazF6" 
+      socials: {
+        linkedin: "https://www.linkedin.com/in/pruthwi-landge-b11a3a202/",
+        instagram: "https://www.instagram.com/pruthvirajlandge.official.07?igsh=dGJ6djU4bjZoazF6"
       }
     }
   ];
@@ -736,14 +736,14 @@ const OurEvents = () => {
           className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8 lg:h-[600px] xl:h-[700px]"
         >
           <div className="flex flex-col gap-6 lg:gap-8 h-full">
-            <EventCard 
+            <EventCard
               title={eventSections[0].title}
               images={eventSections[0].images}
               variants={itemVariants}
               className="relative group overflow-hidden rounded-[20px] shadow-[0_0_20px_rgba(0,0,0,0.5)] flex-1 border border-white/10 hover:border-secondary hover:shadow-[0_0_30px_rgba(0,255,136,0.2)] transition-colors duration-500 cursor-pointer min-h-[250px] lg:min-h-0"
             />
 
-            <EventCard 
+            <EventCard
               title={eventSections[1].title}
               images={eventSections[1].images}
               variants={itemVariants}
@@ -751,7 +751,7 @@ const OurEvents = () => {
             />
           </div>
 
-          <EventCard 
+          <EventCard
             title={eventSections[2].title}
             images={eventSections[2].images}
             variants={itemVariants}
@@ -862,7 +862,7 @@ const TrustedBy = () => {
   return (
     <section className="py-12 border-y border-white/5 bg-[#080d18] relative overflow-hidden flex flex-col items-center">
       <p className="text-gray-400 text-sm font-semibold tracking-widest uppercase mb-8 z-10 text-center">Trusted By Top Colleges & Institutions</p>
-      
+
       {/* Edge Gradients for smooth carousel fade */}
       <div className="absolute top-0 left-0 w-24 md:w-48 h-full bg-gradient-to-r from-[#080d18] to-transparent z-10 pointer-events-none"></div>
       <div className="absolute top-0 right-0 w-24 md:w-48 h-full bg-gradient-to-l from-[#080d18] to-transparent z-10 pointer-events-none"></div>
@@ -872,9 +872,9 @@ const TrustedBy = () => {
           <div key={group} className="flex gap-16 md:gap-24 px-8 md:px-12 items-center">
             {logos.map((logo, idx) => (
               <div key={idx} className="w-40 md:w-56 flex-shrink-0 transition-all duration-300 hover:scale-110 cursor-pointer">
-                <img 
-                  src={logo.img} 
-                  alt={logo.name} 
+                <img
+                  src={logo.img}
+                  alt={logo.name}
                   className="w-full h-[120px] object-contain"
                   style={{ filter: 'drop-shadow(0 0 10px rgba(255,255,255,0.3))' }}
                   loading="lazy"
