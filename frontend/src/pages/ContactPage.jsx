@@ -186,7 +186,7 @@ const ContactPage = () => {
               <span className="text-[15px] tracking-wide">Working Locations:</span>
             </div>
             <div className="ml-12 flex flex-col gap-1">
-              <span className="text-[15px] tracking-wide"> Navi Mumbai, Pune, Maharashtra</span>
+              <span className="text-[15px] tracking-wide"> Navi Mumbai & Pune, Maharashtra </span>
             </div>
           </div>
         </motion.div>
