@@ -37,7 +37,7 @@ const ContactPage = () => {
   };
 
   return (
-    <motion.div 
+    <motion.div
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       exit={{ opacity: 0 }}
@@ -55,7 +55,7 @@ const ContactPage = () => {
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 w-full flex flex-col items-center">
         {/* 2. HERO SECTION */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: -20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
@@ -70,7 +70,7 @@ const ContactPage = () => {
         </motion.div>
 
         {/* 3. CONTACT CARD */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, scale: 0.95 }}
           animate={{ opacity: 1, scale: 1 }}
           transition={{ duration: 0.8, delay: 0.4 }}
@@ -84,53 +84,53 @@ const ContactPage = () => {
             <div className="grid grid-cols-1 md:grid-cols-2 gap-5">
               <div className="flex flex-col gap-1.5 focus-within:text-accent">
                 <label className="text-[13px] font-medium text-gray-400 transition-colors">Name</label>
-                <input 
-                   type="text" 
-                   name="name"
-                   required
-                   value={formData.name}
-                   onChange={handleChange}
-                   className="w-full h-12 bg-[#0F172A]/50 border border-white/5 rounded-xl px-4 text-[14px] text-white focus:outline-none focus:border-accent/80 focus:bg-[#0F172A]/80 transition-all shadow-inner placeholder-gray-500"
-                   placeholder="John Doe"
+                <input
+                  type="text"
+                  name="name"
+                  required
+                  value={formData.name}
+                  onChange={handleChange}
+                  className="w-full h-12 bg-[#0F172A]/50 border border-white/5 rounded-xl px-4 text-[14px] text-white focus:outline-none focus:border-accent/80 focus:bg-[#0F172A]/80 transition-all shadow-inner placeholder-gray-500"
+                  placeholder="John Doe"
                 />
               </div>
               <div className="flex flex-col gap-1.5 focus-within:text-accent">
                 <label className="text-[13px] font-medium text-gray-400 transition-colors">Email</label>
-                <input 
-                   type="email" 
-                   name="email"
-                   required
-                   value={formData.email}
-                   onChange={handleChange}
-                   className="w-full h-12 bg-[#0F172A]/50 border border-white/5 rounded-xl px-4 text-[14px] text-white focus:outline-none focus:border-accent/80 focus:bg-[#0F172A]/80 transition-all shadow-inner placeholder-gray-500"
-                   placeholder="john@example.com"
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  value={formData.email}
+                  onChange={handleChange}
+                  className="w-full h-12 bg-[#0F172A]/50 border border-white/5 rounded-xl px-4 text-[14px] text-white focus:outline-none focus:border-accent/80 focus:bg-[#0F172A]/80 transition-all shadow-inner placeholder-gray-500"
+                  placeholder="john@example.com"
                 />
               </div>
             </div>
 
             <div className="flex flex-col gap-1.5 focus-within:text-accent">
-               <label className="text-[13px] font-medium text-gray-400 transition-colors">Subject</label>
-               <input 
-                  type="text" 
-                  name="subject"
-                  required
-                  value={formData.subject}
-                  onChange={handleChange}
-                  className="w-full h-12 bg-[#0F172A]/50 border border-white/5 rounded-xl px-4 text-[14px] text-white focus:outline-none focus:border-accent/80 focus:bg-[#0F172A]/80 transition-all shadow-inner placeholder-gray-500"
-                  placeholder="How can we help you?"
-               />
+              <label className="text-[13px] font-medium text-gray-400 transition-colors">Subject</label>
+              <input
+                type="text"
+                name="subject"
+                required
+                value={formData.subject}
+                onChange={handleChange}
+                className="w-full h-12 bg-[#0F172A]/50 border border-white/5 rounded-xl px-4 text-[14px] text-white focus:outline-none focus:border-accent/80 focus:bg-[#0F172A]/80 transition-all shadow-inner placeholder-gray-500"
+                placeholder="How can we help you?"
+              />
             </div>
 
             <div className="flex flex-col gap-1.5 focus-within:text-accent">
-               <label className="text-[13px] font-medium text-gray-400 transition-colors">Message</label>
-               <textarea 
-                  name="message"
-                  required
-                  value={formData.message}
-                  onChange={handleChange}
-                  className="w-full min-h-[140px] bg-[#0F172A]/50 border border-white/5 rounded-xl p-4 text-[14px] text-white focus:outline-none focus:border-accent/80 focus:bg-[#0F172A]/80 transition-all shadow-inner placeholder-gray-500 resize-y"
-                  placeholder="Write your message here..."
-               ></textarea>
+              <label className="text-[13px] font-medium text-gray-400 transition-colors">Message</label>
+              <textarea
+                name="message"
+                required
+                value={formData.message}
+                onChange={handleChange}
+                className="w-full min-h-[140px] bg-[#0F172A]/50 border border-white/5 rounded-xl p-4 text-[14px] text-white focus:outline-none focus:border-accent/80 focus:bg-[#0F172A]/80 transition-all shadow-inner placeholder-gray-500 resize-y"
+                placeholder="Write your message here..."
+              ></textarea>
             </div>
 
             {successMsg && (
@@ -139,7 +139,7 @@ const ContactPage = () => {
                 {successMsg}
               </div>
             )}
-            
+
             {errorMsg && (
               <div className="bg-red-500/10 border border-red-500/30 text-red-400 px-4 py-3 rounded-xl text-sm flex items-center gap-2">
                 <AlertCircle size={18} />
@@ -147,8 +147,8 @@ const ContactPage = () => {
               </div>
             )}
 
-            <button 
-              type="submit" 
+            <button
+              type="submit"
               disabled={isSubmitting}
               className={`mt-4 w-full h-12 bg-accent hover:bg-[#0096B4] text-primary font-bold text-[15px] rounded-xl flex items-center justify-center gap-2 transition-all duration-300 ${isSubmitting ? 'opacity-70 cursor-not-allowed' : 'hover:scale-[1.02] hover:shadow-[0_0_20px_rgba(0,180,216,0.5)] active:scale-[0.98]'}`}
             >
@@ -158,7 +158,7 @@ const ContactPage = () => {
         </motion.div>
 
         {/* 6. EXTRA INFO */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.6 }}
@@ -175,7 +175,7 @@ const ContactPage = () => {
             <div className="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center group-hover:bg-secondary/20 group-hover:border-secondary/40 transition-colors shadow-inner">
               <MapPin size={18} className="text-secondary" />
             </div>
-            <span className="text-[15px] tracking-wide">Registered HQ: Amravati, Navi Mumbai, Maharashtra</span>
+            <span className="text-[15px] tracking-wide">HQ: Amravati, Maharashtra</span>
           </div>
 
           <div className="flex flex-col gap-2 text-gray-400">
@@ -186,7 +186,7 @@ const ContactPage = () => {
               <span className="text-[15px] tracking-wide">Working Locations:</span>
             </div>
             <div className="ml-12 flex flex-col gap-1">
-              <span className="text-[15px] tracking-wide">• Pune, Maharashtra</span>
+              <span className="text-[15px] tracking-wide"> Navi Mumbai, Pune, Maharashtra</span>
             </div>
           </div>
         </motion.div>
