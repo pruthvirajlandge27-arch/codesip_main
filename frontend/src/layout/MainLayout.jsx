@@ -239,7 +239,7 @@ const MainLayout = () => {
                 </li>
                 <li>
                   <span className="text-[15px] text-[#A0A0A0] block">
-                    Registered HQ: Amravati, Navi Mumbai, Maharashtra, India
+                    Registered HQ: Amravati, Maharashtra, India
                   </span>
                 </li>
               </ul>
