@@ -242,6 +242,11 @@ const MainLayout = () => {
                     Registered HQ: Amravati, Maharashtra, India
                   </span>
                 </li>
+                <li>
+                  <span className="text-[15px] text-[#A0A0A0] block mt-1">
+                    Working Locations: Pune & Navi Mumbai
+                  </span>
+                </li>
               </ul>
               
               {/* Social Icons */}
