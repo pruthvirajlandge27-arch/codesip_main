@@ -1,23 +1,34 @@
 import { BrowserRouter as Router, Routes, Route, useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+import React, { useEffect, Suspense } from 'react';
+
+// Eagerly loaded components
 import MainLayout from './layout/MainLayout';
-import Home from './pages/Home';
-import ServicesPage from './pages/ServicesPage';
-import InternshipsPage from './pages/InternshipsPage';
-import CareersPage from './pages/CareersPage';
-import ContactPage from './pages/ContactPage';
-import FinalYearProjectPage from './pages/FinalYearProjectPage';
-import ManpowerSupplyPage from './pages/ManforcePage';
-import MousCollabsPage from './pages/MousCollabsPage';
-import PrivacyPolicy from './pages/PrivacyPolicy';
-import Terms from './pages/Terms';
-import InternshipDetailsPage from './pages/InternshipDetailsPage';
-import AdminLogin from './pages/admin/AdminLogin';
 import AdminLayout from './layout/AdminLayout';
-import AdminDashboard from './pages/admin/AdminDashboard';
-import NotFoundPage from './pages/NotFoundPage';
 import ScrollToTopButton from './components/ui/ScrollToTopButton';
 import CookieBanner from './components/CookieBanner';
+
+// Lazy loaded pages
+const Home = React.lazy(() => import('./pages/Home'));
+const ServicesPage = React.lazy(() => import('./pages/ServicesPage'));
+const InternshipsPage = React.lazy(() => import('./pages/InternshipsPage'));
+const CareersPage = React.lazy(() => import('./pages/CareersPage'));
+const ContactPage = React.lazy(() => import('./pages/ContactPage'));
+const FinalYearProjectPage = React.lazy(() => import('./pages/FinalYearProjectPage'));
+const ManpowerSupplyPage = React.lazy(() => import('./pages/ManforcePage'));
+const MousCollabsPage = React.lazy(() => import('./pages/MousCollabsPage'));
+const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
+const Terms = React.lazy(() => import('./pages/Terms'));
+const InternshipDetailsPage = React.lazy(() => import('./pages/InternshipDetailsPage'));
+const AdminLogin = React.lazy(() => import('./pages/admin/AdminLogin'));
+const AdminDashboard = React.lazy(() => import('./pages/admin/AdminDashboard'));
+const NotFoundPage = React.lazy(() => import('./pages/NotFoundPage'));
+
+// A simple fallback component
+const PageLoader = () => (
+  <div className="flex items-center justify-center min-h-screen bg-primary">
+    <div className="w-10 h-10 border-4 border-secondary/20 border-t-secondary rounded-full animate-spin"></div>
+  </div>
+);
 
 const DynamicTitle = () => {
   const location = useLocation();
@@ -80,30 +91,32 @@ function App() {
       <DynamicTitle />
       <ScrollToTopButton />
       <CookieBanner />
-      <Routes>
-        <Route path="/" element={<MainLayout />}>
-          <Route index element={<Home />} />
-          <Route path="services" element={<ServicesPage />} />
-          <Route path="services/final-year-project" element={<FinalYearProjectPage />} />
-          <Route path="services/manpower-supply" element={<ManpowerSupplyPage />} />
-          <Route path="internships" element={<InternshipsPage />} />
-          <Route path="internships/:domain" element={<InternshipDetailsPage />} />
-          <Route path="careers" element={<CareersPage />} />
-          <Route path="mous-and-collabs" element={<MousCollabsPage />} />
-          <Route path="contact" element={<ContactPage />} />
-          <Route path="privacy-policy" element={<PrivacyPolicy />} />
-          <Route path="terms" element={<Terms />} />
-        </Route>
-        
-        {/* Admin Routes */}
-        <Route path="/admin" element={<AdminLogin />} />
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route path="dashboard" element={<AdminDashboard />} />
-        </Route>
-        
-        {/* Catch-all 404 Route */}
-        <Route path="*" element={<NotFoundPage />} />
-      </Routes>
+      <Suspense fallback={<PageLoader />}>
+        <Routes>
+          <Route path="/" element={<MainLayout />}>
+            <Route index element={<Home />} />
+            <Route path="services" element={<ServicesPage />} />
+            <Route path="services/final-year-project" element={<FinalYearProjectPage />} />
+            <Route path="services/manpower-supply" element={<ManpowerSupplyPage />} />
+            <Route path="internships" element={<InternshipsPage />} />
+            <Route path="internships/:domain" element={<InternshipDetailsPage />} />
+            <Route path="careers" element={<CareersPage />} />
+            <Route path="mous-and-collabs" element={<MousCollabsPage />} />
+            <Route path="contact" element={<ContactPage />} />
+            <Route path="privacy-policy" element={<PrivacyPolicy />} />
+            <Route path="terms" element={<Terms />} />
+          </Route>
+          
+          {/* Admin Routes */}
+          <Route path="/admin" element={<AdminLogin />} />
+          <Route path="/admin" element={<AdminLayout />}>
+            <Route path="dashboard" element={<AdminDashboard />} />
+          </Route>
+          
+          {/* Catch-all 404 Route */}
+          <Route path="*" element={<NotFoundPage />} />
+        </Routes>
+      </Suspense>
     </Router>
   );
 }
