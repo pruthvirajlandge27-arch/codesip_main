@@ -26,6 +26,7 @@ const MainLayout = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services', dropdown: [
+      { name: 'Website & Application Development', path: '/services' },
       { name: 'Final Year Project', path: '/services/final-year-project' },
       { name: 'Manpower Supply (Vendor)', path: '/services/manpower-supply' }
     ]},
