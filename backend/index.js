@@ -51,8 +51,8 @@ app.use('/api/auth', authRoutes);
 app.use('/api/contacts', contactsRoutes);
 app.use('/api/internships', internshipRoutes);
 app.use('/api/applications', applicationRoutes);
-app.use('/api/services', cacheControl, serviceRoutes);
-app.use('/api/openings', cacheControl, openingRoutes);
+app.use('/api/services', serviceRoutes);
+app.use('/api/openings', openingRoutes);
 app.get('/', (req, res) => {
   res.send('CodeSip API is running');
 });

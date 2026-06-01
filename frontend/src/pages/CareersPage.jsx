@@ -1,27 +1,22 @@
 import React, { useEffect, useState } from 'react';
 import { motion } from 'framer-motion';
 import { Briefcase, ExternalLink, Loader2 } from 'lucide-react';
+import { useQuery } from '@tanstack/react-query';
 import api from '../api/axios';
 
 const CareersPage = () => {
-  const [openings, setOpenings] = useState([]);
-  const [loading, setLoading] = useState(true);
-
   useEffect(() => {
     window.scrollTo(0, 0);
-    fetchOpenings();
   }, []);
 
-  const fetchOpenings = async () => {
-    try {
-      const res = await api.get('/openings'); // Public route, only gets active openings
-      setOpenings(res.data);
-    } catch (error) {
-      console.error('Error fetching openings:', error);
-    } finally {
-      setLoading(false);
-    }
-  };
+  const { data: openings = [], isLoading: loading } = useQuery({
+    queryKey: ['openings'],
+    queryFn: async () => {
+      const res = await api.get('/openings');
+      return res.data;
+    },
+    staleTime: 5 * 60 * 1000, // 5 minutes cache
+  });
 
   return (
     <motion.div
@@ -44,8 +39,9 @@ const CareersPage = () => {
           </div>
 
           {loading ? (
-            <div className="flex justify-center items-center py-20">
+            <div className="flex flex-col justify-center items-center py-20 space-y-4">
               <Loader2 className="w-8 h-8 text-secondary animate-spin" />
+              <p className="text-gray-400 text-sm animate-pulse">Loading job openings, this might take a moment if the server is waking up...</p>
             </div>
           ) : openings.length === 0 ? (
             <div className="text-center py-20 text-gray-400 border border-white/10 bg-white/5 rounded-3xl">
