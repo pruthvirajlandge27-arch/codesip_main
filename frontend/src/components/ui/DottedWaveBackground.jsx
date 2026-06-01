@@ -78,15 +78,17 @@ const DottedWaveBackground = () => {
           const opacity = edgeFadeX * edgeFadeZ * 0.9;
 
           if (opacity > 0.01) {
+            // Draw outer glow (extremely fast)
+            ctx.beginPath();
+            ctx.arc(screenX, finalScreenY, size * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = `rgba(0, 180, 216, ${opacity * 0.25})`;
+            ctx.fill();
+
+            // Draw inner core dot
             ctx.beginPath();
             ctx.arc(screenX, finalScreenY, size, 0, Math.PI * 2);
-            
             ctx.fillStyle = `rgba(0, 180, 216, ${opacity})`;
-            ctx.shadowBlur = 12 * perspective;
-            ctx.shadowColor = 'rgba(0, 180, 216, 0.8)';
-            
             ctx.fill();
-            ctx.shadowBlur = 0;
           }
         }
       }

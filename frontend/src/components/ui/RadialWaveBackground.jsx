@@ -84,23 +84,27 @@ const RadialWaveBackground = () => {
           const opacity = Math.min(1, Math.max(0.01, adjustedPerspective * 0.8));
 
           // Soft blue-purple glow per instructions
+          // Neon cyan-purple styling
           if (opacity > 0.02 && finalRadius > 0) {
+            let color = `rgba(0, 180, 216, ${opacity})`;
+            let glowColor = `rgba(0, 255, 136, ${opacity * 0.2})`;
+            
+            if (i % 3 === 0) {
+               color = `rgba(138, 43, 226, ${opacity})`;
+               glowColor = `rgba(138, 43, 226, ${opacity * 0.2})`;
+            }
+
+            // Draw outer glow (extremely fast)
+            ctx.beginPath();
+            ctx.arc(px, py, size * 2.5, 0, Math.PI * 2);
+            ctx.fillStyle = glowColor;
+            ctx.fill();
+            
+            // Draw inner core dot
             ctx.beginPath();
             ctx.arc(px, py, size, 0, Math.PI * 2);
-            
-            // Neon cyan-purple styling
-            ctx.fillStyle = `rgba(0, 180, 216, ${opacity})`;
-            ctx.shadowBlur = 12 * adjustedPerspective;
-            // Interleave purple/teal based on ring index
-            if (i % 3 === 0) {
-               ctx.fillStyle = `rgba(138, 43, 226, ${opacity})`;
-               ctx.shadowColor = 'rgba(138, 43, 226, 0.7)';
-            } else {
-               ctx.shadowColor = 'rgba(0, 255, 136, 0.5)';
-            }
-            
+            ctx.fillStyle = color;
             ctx.fill();
-            ctx.shadowBlur = 0;
           }
         }
       });
