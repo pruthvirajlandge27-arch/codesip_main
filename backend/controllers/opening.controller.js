@@ -5,7 +5,7 @@ import Opening from '../models/Opening.js';
 // @access  Public
 export const getOpenings = async (req, res, next) => {
   try {
-    const openings = await Opening.find({ is_active: true });
+    const openings = await Opening.find({ is_active: true }).sort({ createdAt: -1 });
     res.json(openings);
   } catch (error) {
     next(error);
@@ -17,7 +17,7 @@ export const getOpenings = async (req, res, next) => {
 // @access  Private/Admin
 export const getAllOpenings = async (req, res, next) => {
   try {
-    const openings = await Opening.find({});
+    const openings = await Opening.find({}).sort({ createdAt: -1 });
     res.json(openings);
   } catch (error) {
     next(error);
