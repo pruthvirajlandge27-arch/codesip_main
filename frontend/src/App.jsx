@@ -15,6 +15,7 @@ const CareersPage = React.lazy(() => import('./pages/CareersPage'));
 const ContactPage = React.lazy(() => import('./pages/ContactPage'));
 const FinalYearProjectPage = React.lazy(() => import('./pages/FinalYearProjectPage'));
 const ManpowerSupplyPage = React.lazy(() => import('./pages/ManforcePage'));
+const WebAppDevelopmentPage = React.lazy(() => import('./pages/WebAppDevelopmentPage'));
 const MousCollabsPage = React.lazy(() => import('./pages/MousCollabsPage'));
 const PrivacyPolicy = React.lazy(() => import('./pages/PrivacyPolicy'));
 const Terms = React.lazy(() => import('./pages/Terms'));
@@ -119,6 +120,7 @@ function App() {
             <Route index element={<Home />} />
             <Route path="services" element={<ServicesPage />} />
             <Route path="services/final-year-project" element={<FinalYearProjectPage />} />
+            <Route path="services/website-app-development" element={<WebAppDevelopmentPage />} />
             <Route path="services/manpower-supply" element={<ManpowerSupplyPage />} />
             <Route path="internships" element={<InternshipsPage />} />
             <Route path="internships/:domain" element={<InternshipDetailsPage />} />

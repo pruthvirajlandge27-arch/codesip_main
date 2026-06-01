@@ -26,7 +26,7 @@ const MainLayout = () => {
   const navLinks = [
     { name: 'Home', path: '/' },
     { name: 'Services', path: '/services', dropdown: [
-      { name: 'Website & Application Development', path: '/services' },
+      { name: 'Website & Application Development', path: '/services/website-app-development' },
       { name: 'Final Year Project', path: '/services/final-year-project' },
       { name: 'Manpower Supply (Vendor)', path: '/services/manpower-supply' }
     ]},
@@ -218,7 +218,7 @@ const MainLayout = () => {
                   { name: 'Final Year Projects', path: '/services/final-year-project' },
                   { name: 'Manpower Supply (Vendor)', path: '/services/manpower-supply' },
                   { name: 'Internship Programs', path: '/internships' },
-                  { name: 'Web & App Development', path: '/services' }
+                  { name: 'Web & App Development', path: '/services/website-app-development' }
                 ].map((service) => (
                   <li key={service.name}>
                     <Link to={service.path} className="text-[15px] text-[#A0A0A0] hover:text-white transition-all duration-300 hover:drop-shadow-[0_0_8px_rgba(255,255,255,0.4)] block hover:translate-x-1">
