@@ -41,7 +41,7 @@ const Terms = () => {
           <section>
             <h2 className="text-2xl font-bold text-white mb-4">3. Intellectual Property</h2>
             <p>
-              All content, logos, designs, and code on this platform are the intellectual property of CodeSip Technology LLP. You may not use, reproduce, or distribute our content without explicit permission.
+              All content, logos, designs, and code on this platform are the intellectual property of CodeSip Technology. You may not use, reproduce, or distribute our content without explicit permission.
             </p>
           </section>
 
