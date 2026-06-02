@@ -6,6 +6,7 @@ import MainLayout from './layout/MainLayout';
 import AdminLayout from './layout/AdminLayout';
 import ScrollToTopButton from './components/ui/ScrollToTopButton';
 import CookieBanner from './components/CookieBanner';
+import SEO from './components/SEO';
 
 // Lazy loaded pages
 const Home = React.lazy(() => import('./pages/Home'));
@@ -53,25 +54,7 @@ const PageLoader = () => (
   </div>
 );
 
-const DynamicTitle = () => {
-  const location = useLocation();
-  
-  useEffect(() => {
-    const path = location.pathname;
-    let title = "CodeSip | Gaav se Global tak";
-    
-    if (path.startsWith('/services')) title = "Services | CodeSip";
-    else if (path.startsWith('/internships')) title = "Internships | CodeSip";
-    else if (path.startsWith('/careers')) title = "Careers | CodeSip";
-    else if (path.startsWith('/contact')) title = "Contact Us | CodeSip";
-    else if (path.startsWith('/mous-and-collabs')) title = "MOUs & Collabs | CodeSip";
-    else if (path.startsWith('/admin')) title = "Admin Dashboard | CodeSip";
 
-    document.title = title;
-  }, [location.pathname]);
-
-  return null;
-};
 
 const ScrollEffects = () => {
   const location = useLocation();
@@ -111,7 +94,7 @@ function App() {
   return (
     <Router>
       <ScrollEffects />
-      <DynamicTitle />
+      <SEO />
       <ScrollToTopButton />
       <CookieBanner />
       <Suspense fallback={<PageLoader />}>
