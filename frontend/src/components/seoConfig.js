@@ -55,9 +55,9 @@ export const ROUTE_SEO = {
     schemaType: "CoursePortal"
   },
   "/careers": {
-    title: "Careers & Open Positions | CodeSip Technology",
-    description: "Join our mission to democratize technology. Explore exciting developer, design, and management opportunities at CodeSip and help build the future.",
-    keywords: "work at codesip, remote job developer, software engineer vacancies, IT job india, startup careers",
+    title: "CodeSip Careers | Job Openings & Opportunities",
+    description: "Explore active job openings, developer vacancies, design roles, and internships at CodeSip Technology. Apply today and start your journey from Gaav se Global tak.",
+    keywords: "codesip careers, careers at codesip, codesip jobs, codesip technology careers, work at codesip, remote job developer, software engineer vacancies, IT job india, startup careers",
     schemaType: "Careers"
   },
   "/mous-and-collabs": {
@@ -244,6 +244,21 @@ export const generateSchema = (route, domainParam = "") => {
           "name": "CodeSip Technology"
         },
         "serviceType": "IT Staffing & Recruitment Vendor Services"
+      };
+
+    case "/careers":
+      return {
+        ...baseSchema,
+        "@type": "AboutPage",
+        "name": "CodeSip Careers & Open Positions",
+        "description": "Explore exciting career opportunities, developer jobs, design roles, and internships at CodeSip Technology. Join our mission to build the future of tech.",
+        "url": "https://codesip.in/careers",
+        "publisher": {
+          "@type": "Organization",
+          "name": "CodeSip Technology",
+          "url": "https://codesip.in",
+          "logo": "https://codesip.in/src/assets/logo.jpg"
+        }
       };
 
     case "/internships":
